@@ -1,0 +1,23 @@
+<nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img src="img/logo.png" alt="TULP interactive" class="img-responsive">
+        </a>
+        
+        <button class="button navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    
+    <div class="navbar-menu">
+        <div class="navbar-end">
+            {{ with .Site.Menus.main }}
+                {{ range . }}
+                    <a class="navbar-item">{{ .Name }}</a>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</nav>

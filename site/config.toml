@@ -1,9 +1,38 @@
 baseurl = "/"
 languageCode = "en-us"
 languageLang = "en"
-title = "My new Victor-Hugo site"
+title = "TULP interactive"
+
+# active theme
+theme = "tulpinteractive"
 
 # RSS, categories and tags disabled for an easy start
 # See configuration options for more details: 
 # https://gohugo.io/getting-started/configuration/#toml-configuration
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+
+# Menu links that appear on the left sidebar
+[[menu.main]]
+	name = "Home"
+	url  = "/"
+	weight = 10
+
+[[menu.main]]
+	name = "Work"
+	url  = "project/"
+	weight = 0
+
+[[menu.main]]
+	name = "Workshop"
+	url  = "workshop/"
+	weight = 0
+
+[[menu.main]]
+	name = "Office Data Art"
+	url  = "office-data-art/"
+	weight = 0
+
+[[menu.main]]
+	name = "About"
+	url  = "about/"
+	weight = 0
