@@ -1,6 +1,6 @@
 <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="/">
             <img src="img/logo.png" alt="TULP interactive" class="img-responsive">
         </a>
         
@@ -13,10 +13,8 @@
     
     <div class="navbar-menu">
         <div class="navbar-end">
-            {{ with .Site.Menus.main }}
-                {{ range . }}
-                    <a class="navbar-item">{{ .Name }}</a>
-                {{ end }}
+            {{ range sort .Site.Menus.main "Weight" "asc" }}
+                <a href="{{ .URL }}" class="navbar-item">{{ .Name }}</a>
             {{ end }}
         </div>
     </div>

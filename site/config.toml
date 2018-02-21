@@ -13,26 +13,16 @@ disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 
 # Menu links that appear on the left sidebar
 [[menu.main]]
-	name = "Home"
-	url  = "/"
-	weight = 10
-
-[[menu.main]]
 	name = "Work"
-	url  = "project/"
+	url  = "work/"
 	weight = 0
 
 [[menu.main]]
 	name = "Workshop"
 	url  = "workshop/"
-	weight = 0
-
-[[menu.main]]
-	name = "Office Data Art"
-	url  = "office-data-art/"
-	weight = 0
+	weight = 10
 
 [[menu.main]]
 	name = "About"
 	url  = "about/"
-	weight = 0
+	weight = 20
