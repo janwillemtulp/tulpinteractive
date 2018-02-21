@@ -1,10 +1,7 @@
----
-title: "{{ replace .Name "-" " " | title }}"
-client: ""
-date: {{ .Date }}
-draft: true
-description: ""
-tags: ""
-categories: ""
-link: ""
----
++++
+title = "{{ replace .Name '-' ' ' | title }}"
+client = ""
+date = {{ .Date }}
+draft = false
+url = ""
++++

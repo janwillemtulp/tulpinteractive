@@ -1,7 +1,29 @@
 {{ define "main" }}
+
+
 <main class="container">
 
-    <article>
+    {{ range (where (where .Site.AllPages "Section" "project") ".Kind" "==" "page") }}
+        <article>
+            <div class="feature-text">
+                <div class="project-client">
+                    <h3>{{ .Params.client }}</h3>
+                </div>
+                <div class="project-title">
+                    <h1>{{ .Title }}</h1>
+                </div>
+                <div class="project-description">
+                    <p>{{ .Content }}</p>
+                </div>
+                <div class="project-buttons">
+                    <button class="view-project">view project</button>
+                </div>
+            </div>
+            <div class="feature-image" style="background-image: url('img/briscione.png');"></div>
+        </article>
+    {{ end }}
+
+    <!-- <article>
         <div class="feature-image" style="background-image: url('img/briscione.png');"></div>
         <div class="feature-text">
             <div class="project-client">
@@ -131,6 +153,6 @@
                 <button class="view-project">view project</button>
             </div>
         </div>
-    </article>
+    </article> -->
 </main>
 {{ end }}
