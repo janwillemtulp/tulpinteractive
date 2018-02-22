@@ -1,6 +1,5 @@
 {{ define "main" }}
 
-
 <main class="container">
 
     {{ range $index, $element := (where (where .Site.AllPages "Section" "project") ".Kind" "==" "page") }}
