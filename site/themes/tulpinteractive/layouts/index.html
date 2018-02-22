@@ -3,8 +3,9 @@
 
 <main class="container">
 
-    {{ range (where (where .Site.AllPages "Section" "project") ".Kind" "==" "page") }}
-        <article>
+    {{ range $index, $element := (where (where .Site.AllPages "Section" "project") ".Kind" "==" "page") }}
+        {{ $oddeven := cond (eq (mod $index 2) 0) "even" "odd" }}
+        <article class="{{ $oddeven }}">
             <div class="feature-text">
                 <div class="project-client">
                     <h3>{{ .Params.client }}</h3>
@@ -19,7 +20,7 @@
                     <button class="view-project">view project</button>
                 </div>
             </div>
-            <div class="feature-image" style="background-image: url('img/briscione.png');"></div>
+            <div class="feature-image" style="background-image: url('img/{{ .Params.image }}');"></div>
         </article>
     {{ end }}
 

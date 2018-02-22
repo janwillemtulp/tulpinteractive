@@ -58,8 +58,24 @@ article {
     box-shadow: 5px 5px 27px rgba(0, 0, 0, 0.1);
 }
 
+article.odd .feature-text {
+    grid-column: 9 / span 4;
+    grid-row: 1;
+}
+
+article.odd .feature-image {
+    grid-column: 1 / span 8;
+}
+
+article.even .feature-text {
+    grid-column: 1 / span 4;
+}
+
+article.even .feature-image {
+    grid-column: 5 / span 8;
+}
+
 .feature-text {
-    grid-column: span 4;
     padding: 3vw;
     background-color: #ffffff;
 }
@@ -105,7 +121,6 @@ article {
 }
 
 .feature-image {
-    grid-column: span 8;
     background-size: cover;
     background-position: center center;
 }
