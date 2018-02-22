@@ -82,9 +82,10 @@ article.even .feature-image {
 
 .project-client h3 {
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0.1rem;
+    color: #aaa;
 }
 
 .project-title h1 {
