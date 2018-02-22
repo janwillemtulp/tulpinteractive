@@ -4,4 +4,5 @@ client = ""
 date = {{ .Date }}
 draft = false
 url = ""
+image = ""
 +++
