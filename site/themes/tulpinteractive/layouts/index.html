@@ -15,9 +15,11 @@
             <div class="project-description">
                 <p>{{ .Content }}</p>
             </div>
-            <div class="project-buttons">
-                <button class="view-project">view project</button>
-            </div>
+            {{ if isset .Params "link" }}
+                <div class="project-buttons">
+                    <button class="view-project">view project</button>
+                </div>
+            {{ end }}
         </div>
         <div class="feature-image">
             <img src="img/{{ .Params.image }}" alt="">
