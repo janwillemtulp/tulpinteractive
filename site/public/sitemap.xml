@@ -3,7 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/project/eclipse-spiral/</loc>
+    <lastmod>2018-02-14T21:11:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/edible-medical/</loc>
+    <lastmod>2018-02-14T21:11:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/star-mapper/</loc>
+    <lastmod>2018-02-14T21:11:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/architecture-archive/</loc>
+    <lastmod>2018-02-13T21:11:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/spirograph/</loc>
+    <lastmod>2018-01-14T21:11:17+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/</loc>
+    <lastmod>2018-02-14T21:11:17+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/</loc>
+    <lastmod>2018-02-14T21:11:17+01:00</lastmod>
     <priority>0</priority>
   </url>
   

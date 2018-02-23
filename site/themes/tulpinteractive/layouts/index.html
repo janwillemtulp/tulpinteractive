@@ -3,24 +3,26 @@
 <main class="container">
 
     {{ range $index, $element := (where (where .Site.AllPages "Section" "project") ".Kind" "==" "page") }}
-        {{ $oddeven := cond (eq (mod $index 2) 0) "even" "odd" }}
-        <article class="{{ $oddeven }}">
-            <div class="feature-text">
-                <div class="project-client">
-                    <h3>{{ .Params.client }}</h3>
-                </div>
-                <div class="project-title">
-                    <h1>{{ .Title }}</h1>
-                </div>
-                <div class="project-description">
-                    <p>{{ .Content }}</p>
-                </div>
-                <div class="project-buttons">
-                    <button class="view-project">view project</button>
-                </div>
+    {{ $oddeven := cond (eq (mod $index 2) 0) "even" "odd" }}
+    <article class="{{ $oddeven }}">
+        <div class="feature-text">
+            <div class="project-client">
+                <h3>{{ .Params.client }}</h3>
             </div>
-            <div class="feature-image" style="background-image: url('img/{{ .Params.image }}');"></div>
-        </article>
+            <div class="project-title">
+                <h1>{{ .Title }}</h1>
+            </div>
+            <div class="project-description">
+                <p>{{ .Content }}</p>
+            </div>
+            <div class="project-buttons">
+                <button class="view-project">view project</button>
+            </div>
+        </div>
+        <div class="feature-image">
+            <img src="img/{{ .Params.image }}" alt="">
+        </div>
+    </article>
     {{ end }}
 
     <!-- <article>

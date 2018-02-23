@@ -44,6 +44,8 @@ footer {
 .navbar-item {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    color: hsla(190, 86%, 20%, 0.5);
+    font-size: 0.8rem;
 }
 
 .container {
@@ -56,7 +58,7 @@ article {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(600px, auto);
+    grid-auto-rows: minmax(640px, 640px);
     box-shadow: 5px 5px 27px rgba(0, 0, 0, 0.1);
 }
 
@@ -102,7 +104,7 @@ article.even .feature-image {
 }
 
 .project-description p {
-    line-height: 1.7rem;
+    line-height: 2rem;
     font-size: 1.2rem;
 }
 
@@ -133,7 +135,10 @@ article.even .feature-image {
     cursor: pointer;
 }
 
-.feature-image {
-    background-size: cover;
-    background-position: center center;
+.feature-image img {
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
 }
