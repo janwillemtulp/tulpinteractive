@@ -12,12 +12,15 @@
             <div class="project-title">
                 <h1>{{ .Title }}</h1>
             </div>
+            <div class="project-tagline">
+                <p>{{ .Params.tagline }}</p>
+            </div>
             <div class="project-description">
                 <p>{{ .Content }}</p>
             </div>
             {{ if isset .Params "link" }}
-                <div class="project-buttons">
-                    <button class="view-project">view project</button>
+                <div class="project-link">
+                    <a href="{{ .Params.link }}" class="view-project">view project</a>
                 </div>
             {{ end }}
         </div>
