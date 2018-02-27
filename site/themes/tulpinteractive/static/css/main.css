@@ -52,15 +52,32 @@ footer .container {
     margin-bottom: 10px;
 }
 
-.navbar {
-    background-color: #e9eeef;
+nav {
+    background-color: #e9eeef;;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 20px;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
 }
 
-.navbar-item {
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: hsla(190, 86%, 20%, 0.5);
-    font-size: 0.8rem;
+nav .menu, nav .brand {
+    padding: 15px;
+}
+
+nav .menu {
+    justify-self: end;
+    align-self: center;
+}
+
+nav .menu a {
+    color:  hsla(190, 86%, 20%, 0.7);
+    margin-right: 20px;
+}
+
+nav .brand img {
+    width: 50%;
 }
 
 main.container {

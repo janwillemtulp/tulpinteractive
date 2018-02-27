@@ -1,14 +1,14 @@
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-            <img src="img/logo.png" alt="TULP interactive" class="img-responsive">
+<nav class="" role="navigation" aria-label="main navigation">
+    <div class="brand">
+        <a class="" href="/">
+            <img src="/img/logo.png" alt="TULP interactive" class="img-responsive">
         </a>
     </div>
     
-    <div class="navbar-menu">
-        <div class="navbar-end">
+    <div class="menu">
+        <div class="">
             {{ range sort .Site.Menus.main "Weight" "asc" }}
-                <a href="{{ .URL }}" class="navbar-item">{{ .Name }}</a>
+                <a href="/{{ .URL }}" class="">{{ .Name }}</a>
             {{ end }}
         </div>
     </div>
