@@ -18,6 +18,11 @@ disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 	weight = 10
 
 [[menu.main]]
+	name = "TimeBender"
+	url  = "timebender/"
+	weight = 15
+
+[[menu.main]]
 	name = "About"
 	url  = "about/"
 	weight = 20
