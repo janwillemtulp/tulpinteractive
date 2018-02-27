@@ -53,6 +53,7 @@ footer .container {
 }
 
 nav {
+    height: 80px;
     background-color: #e9eeef;;
     display: grid;
     grid-template-columns: 100px 1fr;
@@ -61,7 +62,6 @@ nav {
     z-index: 1000;
     width: 100%;
     top: 0;
-    height: 80px;
 }
 
 nav .menu, nav .brand {
