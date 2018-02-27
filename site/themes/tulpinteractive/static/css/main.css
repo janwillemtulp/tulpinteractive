@@ -43,9 +43,9 @@ main {
 }
 
 .about .logo img {
-    padding: 1.2rem 2.4rem;
+    padding: 1.4rem 2.8rem;
     max-height: 100px;
-    filter: invert(1) brightness(0.4) sepia(1) hue-rotate(160deg) grayscale(0.4);
+    filter: invert(1) brightness(0.4) sepia(1) hue-rotate(160deg) grayscale(0.4) opacity(0.8);
 }
 
 h1 {
