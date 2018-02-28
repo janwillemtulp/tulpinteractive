@@ -6,4 +6,4 @@ draft = false
 image = "mor.jpg"
 tagline = "Reports of municipality problems"
 +++
-An interactive visualization built for the local government of Den Haag that allows them to explore municipality issue reports by citizens about public spaces in the city.
+An interactive visualization built for the local government of Den Haag that allows them to explore municipality issue reported by citizens about public spaces in the city.
