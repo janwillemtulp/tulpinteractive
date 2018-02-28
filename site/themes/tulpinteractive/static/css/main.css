@@ -79,6 +79,7 @@ footer .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 50px;
+    padding: 0 35px;
 }
 
 .contact-details {
@@ -100,6 +101,7 @@ nav {
     z-index: 1000;
     width: 100%;
     top: 0;
+    padding: 0 20px;
 }
 
 nav .menu, nav .brand {
@@ -113,7 +115,7 @@ nav .menu {
 
 nav .menu a {
     color:  hsla(190, 86%, 20%, 0.7);
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 nav .brand img {
@@ -271,4 +273,10 @@ article {
     article.even .feature-image {
         grid-column: 5 / span 8;
     } */
+}
+
+@media (min-width: 1024px) {
+    footer .container {
+        padding: 0;
+    }
 }
