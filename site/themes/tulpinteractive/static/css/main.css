@@ -94,7 +94,7 @@ footer .sticky-contact {
     font-weight: 400;
     font-size: 0.8em;
     color: rgba(255, 255, 255, 0.8);
-    border-top: 3px solid #ba2126;
+    border-bottom: 1px solid #ba2126;
 }
 
 footer .sticky-contact i {
