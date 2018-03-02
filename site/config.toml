@@ -12,10 +12,10 @@ theme = "tulpinteractive"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 
 # Menu links that appear on the left sidebar
-[[menu.main]]
-	name = "Workshop"
-	url  = "workshop/"
-	weight = 10
+# [[menu.main]]
+# 	name = "Workshop"
+# 	url  = "workshop/"
+# 	weight = 10
 
 # [[menu.main]]
 # 	name = "TimeBender"

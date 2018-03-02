@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<main class="container">
+<main class="home container">
 
     {{ range $index, $element := (where (where .Site.AllPages "Section" "project") ".Kind" "==" "page") }}
         {{ $oddeven := cond (eq (mod $index 2) 0) "even" "odd" }}
