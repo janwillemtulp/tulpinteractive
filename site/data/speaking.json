@@ -1,0 +1,15 @@
+{ "events": [
+    {
+        "event": "Visualized",
+        "date": "2015-02-07T00:00:00Z",
+        "city": "New York",
+        "country": "USA"
+    },
+    {
+        "event": "OpenVisConf",
+        "date": "2018-05-14T00:00:00Z",
+        "city": "Paris",
+        "country": "France"
+    }
+]
+}

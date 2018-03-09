@@ -1,6 +1,14 @@
 <section class="speaking">
-    <h2>Speaking</h2>
-    <img src="/img/euro_python.jpg" alt="">
-    <h4>Upcoming talks</h4>
-    <h4>Past talks</h4>
+    <img src="/img/euro_python_duotone.jpg" alt="">
+    <div class="wrapper">
+        <h2>Speaking</h2>
+        <p>I love sharing my knowledge and inspire you with my projects</p>
+        <h4>Upcoming talks</h4>
+        <h4>Past talks</h4>
+        <ul>
+        {{ range $.Site.Data.speaking.events }}
+            <li><em>{{ .event }}</em>, {{ .city }}, {{ .country }} ({{ (time .date).Year }}) {{ (time .date).Before now }}</li>
+        {{ end }}
+        </ul>
+    </div>
 </section>
