@@ -2,13 +2,25 @@
     <img src="/img/euro_python_duotone.jpg" alt="">
     <div class="wrapper">
         <h2>Speaking</h2>
-        <p>I love sharing my knowledge and inspire you with my projects</p>
-        <h4>Upcoming talks</h4>
-        <h4>Past talks</h4>
-        <ul>
-        {{ range $.Site.Data.speaking.events }}
-            <li><em>{{ .event }}</em>, {{ .city }}, {{ .country }} ({{ (time .date).Year }}) {{ (time .date).Before now }}</li>
-        {{ end }}
-        </ul>
+        <h4>Upcoming</h4>
+        <table>
+            {{ range sort $.Site.Data.speaking.events "date" }} {{ if (time .date).After now}}
+            <tr>
+                <td>{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</td>
+                <td>{{ .city }} ({{ .country }})</td>
+                <td>{{ dateFormat "January 2, 2006" .date }}</td>
+            </tr>
+            {{ end }} {{ end }}
+        </table>
+        <h4>Past</h4>
+        <table>
+            {{ range sort $.Site.Data.speaking.events "date" "desc"}} {{ if (time .date).Before now}}
+            <tr>
+                <td>{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</td>
+                <td>{{ .city }} ({{ .country }})</td>
+                <td>{{ (time .date).Year }}</td>
+            </tr>
+            {{ end }} {{ end }}
+        </table>
     </div>
 </section>

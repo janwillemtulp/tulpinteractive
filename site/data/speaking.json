@@ -1,15 +1,108 @@
 { "events": [
     {
         "event": "Visualized",
-        "date": "2015-02-07T00:00:00Z",
+        "keynote": false,
+        "date": "2015-10-08T00:00:00Z",
         "city": "New York",
         "country": "USA"
     },
     {
         "event": "OpenVisConf",
+        "keynote": false,
         "date": "2018-05-14T00:00:00Z",
         "city": "Paris",
         "country": "France"
+    },
+    {
+        "event": "Open Data Science Conference (ODSC)",
+        "keynote": false,
+        "date": "2018-05-03T00:00:00Z",
+        "city": "Boston",
+        "country": "USA"
+    },
+    {
+        "event": "Transimage",
+        "keynote": true,
+        "date": "2018-04-18T00:00:00Z",
+        "city": "Edinburgh",
+        "country": "Scotland"
+    },
+    {
+        "event": "UN/IFAD Evaluation",
+        "keynote": false,
+        "date": "2017-06-06T00:00:00Z",
+        "city": "Rome",
+        "country": "Italy"
+    },
+    {
+        "event": "EuroPython",
+        "keynote": true,
+        "date": "2017-07-09T00:00:00Z",
+        "city": "Rimini",
+        "country": "Italy"
+    },
+    {
+        "event": "Budapest BI Forum",
+        "keynote": false,
+        "date": "2014-11-26T00:00:00Z",
+        "city": "Budapest",
+        "country": "Hungary"
+    },
+    {
+        "event": "Big Data for Media",
+        "keynote": false,
+        "date": "2015-03-26T00:00:00Z",
+        "city": "London",
+        "country": "UK"
+    },
+    {
+        "event": "Malofiej",
+        "keynote": false,
+        "date": "2013-03-14T00:00:00Z",
+        "city": "Pamplona",
+        "country": "Spain"
+    },
+    {
+        "event": "Infographics Congres",
+        "keynote": false,
+        "date": "2013-03-01T00:00:00Z",
+        "city": "Zeist",
+        "country": "The Netherlands"
+    },
+    {
+        "event": "DrupalJam",
+        "keynote": true,
+        "date": "2014-04-02T00:00:00Z",
+        "city": "Maarssen",
+        "country": "The Netherlands"
+    },
+    {
+        "event": "Visualized",
+        "keynote": false,
+        "date": "2014-02-06T00:00:00Z",
+        "city": "New York",
+        "country": "USA"
+    },
+    {
+        "event": "Nordic Data Journalism (NODA)",
+        "keynote": false,
+        "date": "2016-04-08T00:00:00Z",
+        "city": "Helsinki",
+        "country": "Finland"
+    },
+    {
+        "event": "Visualizing Knowledge",
+        "keynote": false,
+        "date": "2015-09-09T00:00:00Z",
+        "city": "Helsinki",
+        "country": "Finland"
+    },
+    {
+        "event": "BNO IMG Lab",
+        "keynote": false,
+        "date": "2016-05-26T00:00:00Z",
+        "city": "Rotterdam",
+        "country": "The Netherlands"
     }
 ]
 }
