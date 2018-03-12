@@ -23,7 +23,7 @@
 }
 
 .about section {
-    margin-bottom: 40px;
+    padding-bottom: 40px;
 }
 
 .about section:last-child {
@@ -160,11 +160,34 @@
     filter: invert(1) brightness(0) sepia(1) hue-rotate(160deg) grayscale(0.2) opacity(0.7);
 }
 
+.about .workshop {
+    grid-column: 1 / 13;
+}
+
+.about .exposure {
+    grid-column: 1 / 13;
+}
+
+.about .exposure .wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px;
+    background-color: red;
+}
+
+.about .exposure h2 {
+    margin-bottom: 20px;
+}
+
 .about .awards,
 .about .exhibition,
 .about .judging,
 .about .books {
-    grid-column: span 3;
+    font-size: 1.2em;
+}
+
+.about .exhibition span {
+    font-weight: bold;
 }
 
 .about .my-story {

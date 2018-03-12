@@ -10,10 +10,16 @@
     {{ partial "service" . }}
     {{ partial "client-logos" . }}
     {{ partial "speaking" . }}
-    {{ partial "awards" . }}
-    {{ partial "exhibition" . }}
-    {{ partial "judging" . }}
-    {{ partial "books" . }}
+
+    <section class="exposure">
+      <div class="wrapper">
+        {{ partial "awards" . }}
+        {{ partial "exhibition" . }}
+        {{ partial "judging" . }}
+        {{ partial "books" . }}
+      </div>
+    </section>
+    
     {{ partial "workshop" . }}
     {{ partial "my-story" . }}
     {{ partial "office-data-art" . }}
