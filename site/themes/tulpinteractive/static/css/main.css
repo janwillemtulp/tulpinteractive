@@ -68,6 +68,14 @@ main {
     background-color: #3fb69a;
 }
 
+.about .speaking tr {
+    border-bottom: 1px solid rgba(2, 39, 81, 0.1);
+}
+
+.about .speaking tr:last-child {
+    border-bottom: none;
+}
+
 .about .speaking td:first-child {
     width: 400px;
     font-weight: bold;
