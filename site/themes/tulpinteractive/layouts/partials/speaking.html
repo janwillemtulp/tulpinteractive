@@ -2,25 +2,31 @@
     <img src="/img/euro_python_duotone.jpg" alt="">
     <div class="wrapper">
         <h2>Notable talks</h2>
-        <h4>Upcoming</h4>
-        <table>
-            {{ range sort $.Site.Data.speaking.events "date" }} {{ if (time .date).After now}}
-            <tr>
-                <td>{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</td>
-                <td>{{ .country }}<span> &centerdot; {{ .city }}</span></td>
-                <td>{{ dateFormat "January 2, 2006" .date }}</td>
-            </tr>
-            {{ end }} {{ end }}
-        </table>
-        <h4>Past</h4>
-        <table>
-            {{ range sort $.Site.Data.speaking.events "date" "desc"}} {{ if (time .date).Before now}}
-            <tr>
-                <td>{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</td>
-                <td>{{ .country }}</td>
-                <td>{{ (time .date).Year }}</td>
-            </tr>
-            {{ end }} {{ end }}
-        </table>
+        <div class="conference-list">
+            <div class="event-section">
+                <h4>Upcoming</h4>
+                <div class="event-list">
+                    {{ range sort $.Site.Data.speaking.events "date" }}
+                        {{ if (time .date).After now}}
+                        <div class="name">{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</div>
+                        <div class="location">{{ .country }}<span> &centerdot; {{ .city }}</span></div>
+                        <div class="date">{{ dateFormat "January 2, 2006" .date }}</div>
+                        {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+            <div class="event-section">
+                <h4>Past</h4>
+                <div class="event-list">
+                    {{ range sort $.Site.Data.speaking.events "date" "desc" }}
+                        {{ if (time .date).Before now}}
+                        <div class="name">{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</div>
+                        <div class="location">{{ .country }}</div>
+                        <div class="date">{{ (time .date).Year }}</div>
+                        {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
     </div>
 </section>
