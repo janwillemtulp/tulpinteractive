@@ -1,4 +1,4 @@
-@import 'reset-css/reset.css';
+@import 'imports/reset.css';
 @import 'about.css';
 body {
     font-family: 'Futura-pt', sans-serif;
