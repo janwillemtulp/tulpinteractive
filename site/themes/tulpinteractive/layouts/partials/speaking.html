@@ -1,0 +1,26 @@
+<section class="speaking">
+    <img src="/img/euro_python_duotone.jpg" alt="">
+    <div class="wrapper">
+        <h2>Speaking</h2>
+        <h4>Upcoming</h4>
+        <table>
+            {{ range sort $.Site.Data.speaking.events "date" }} {{ if (time .date).After now}}
+            <tr>
+                <td>{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</td>
+                <td>{{ .city }} ({{ .country }})</td>
+                <td>{{ dateFormat "January 2, 2006" .date }}</td>
+            </tr>
+            {{ end }} {{ end }}
+        </table>
+        <h4>Past</h4>
+        <table>
+            {{ range sort $.Site.Data.speaking.events "date" "desc"}} {{ if (time .date).Before now}}
+            <tr>
+                <td>{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</td>
+                <td>{{ .city }} ({{ .country }})</td>
+                <td>{{ (time .date).Year }}</td>
+            </tr>
+            {{ end }} {{ end }}
+        </table>
+    </div>
+</section>

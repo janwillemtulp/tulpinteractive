@@ -1,7 +1,7 @@
 {{ define "main" }}
 
-<main class="home container">
-
+<main class="home ">
+    <div class="container">
     {{ range $index, $element := (where (where .Site.AllPages "Section" "project") ".Kind" "==" "page") }}
         {{ $oddeven := cond (eq (mod $index 2) 0) "even" "odd" }}
         <article class="{{ $oddeven }}">
@@ -29,7 +29,7 @@
             </div>
         </article>
     {{ end }}
-
+    </div>
 </main>
 
 {{ end }}
