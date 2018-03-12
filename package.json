@@ -1,7 +1,7 @@
 {
-  "name": "victor-hugo",
-  "version": "1.0.0",
-  "description": "Victor Hugo is a Hugo boilerplate for creating truly epic websites!",
+  "name": "TULP interactive",
+  "version": "0.0.1",
+  "description": "TULP interactive website",
   "repository": "netlify/victor-hugo",
   "main": "index.js",
   "scripts": {
