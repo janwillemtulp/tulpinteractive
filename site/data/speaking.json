@@ -14,7 +14,7 @@
         "country": "France"
     },
     {
-        "event": "Open Data Science Conference (ODSC)",
+        "event": "Open Data Science Conference",
         "keynote": false,
         "date": "2018-05-03T00:00:00Z",
         "city": "Boston",
@@ -84,7 +84,7 @@
         "country": "USA"
     },
     {
-        "event": "Nordic Data Journalism (NODA)",
+        "event": "Nordic Data Journalism",
         "keynote": false,
         "date": "2016-04-08T00:00:00Z",
         "city": "Helsinki",
