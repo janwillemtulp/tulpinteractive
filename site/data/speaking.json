@@ -103,6 +103,13 @@
         "date": "2016-05-26T00:00:00Z",
         "city": "Rotterdam",
         "country": "The Netherlands"
+    },
+    {
+        "event": "DataVizFestival",
+        "keynote": false,
+        "date": "2018-02-08T00:00:00Z",
+        "city": "Zeist",
+        "country": "The Netherlands"
     }
 ]
 }
