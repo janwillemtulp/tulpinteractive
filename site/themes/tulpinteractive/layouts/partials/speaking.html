@@ -1,7 +1,7 @@
 <section class="speaking">
     <img src="/img/euro_python_duotone.jpg" alt="">
     <div class="wrapper">
-        <h2>Speaking</h2>
+        <h2>Notable talks</h2>
         <h4>Upcoming</h4>
         <table>
             {{ range sort $.Site.Data.speaking.events "date" }} {{ if (time .date).After now}}
