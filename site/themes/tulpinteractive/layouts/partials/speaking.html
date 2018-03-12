@@ -7,7 +7,7 @@
             {{ range sort $.Site.Data.speaking.events "date" }} {{ if (time .date).After now}}
             <tr>
                 <td>{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</td>
-                <td>{{ .city }} ({{ .country }})</td>
+                <td>{{ .country }}<span> &centerdot; {{ .city }}</span></td>
                 <td>{{ dateFormat "January 2, 2006" .date }}</td>
             </tr>
             {{ end }} {{ end }}
@@ -17,7 +17,7 @@
             {{ range sort $.Site.Data.speaking.events "date" "desc"}} {{ if (time .date).Before now}}
             <tr>
                 <td>{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</td>
-                <td>{{ .city }} ({{ .country }})</td>
+                <td>{{ .country }}</td>
                 <td>{{ (time .date).Year }}</td>
             </tr>
             {{ end }} {{ end }}
