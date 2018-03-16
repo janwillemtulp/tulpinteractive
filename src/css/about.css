@@ -23,7 +23,7 @@
 }
 
 .about section {
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
 }
 
 .about section:last-child {
@@ -164,6 +164,24 @@
     grid-column: 1 / 13;
 }
 
+.about .books {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    background-color: white;
+}
+
+.about .books .wrapper {
+    padding: 50px;
+}
+
+.about .books .books-image {
+    width: 100%;
+    background-image: url(./../img/books.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
 .about .exposure {
     grid-column: 1 / 13;
 }
@@ -172,7 +190,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 50px;
-    background-color: red;
+    background-color: #fdd934
 }
 
 .about .exposure h2 {
