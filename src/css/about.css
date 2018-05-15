@@ -23,7 +23,6 @@
 }
 
 .about section {
-    padding-bottom: 40px;
 }
 
 .about section:last-child {
@@ -172,7 +171,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 50px;
-    background-color: red;
 }
 
 .about .exposure h2 {
@@ -191,7 +189,8 @@
 }
 
 .about .my-story {
-    grid-column: 1 / 7;
+    grid-column: 1 / 16;
+    padding: 50px;
 }
 
 .about .my-story div {
