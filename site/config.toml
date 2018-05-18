@@ -13,8 +13,8 @@ disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 
 # Menu links that appear on the left sidebar
 # [[menu.main]]
-# 	name = "Workshop"
-# 	url  = "workshop/"
+# 	name = "Service"
+# 	url  = "service/"
 # 	weight = 10
 
 # [[menu.main]]
