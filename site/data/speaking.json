@@ -39,14 +39,16 @@
         "keynote": false,
         "date": "2017-06-06T00:00:00Z",
         "city": "Rome",
-        "country": "Italy"
+        "country": "Italy",
+        "video": "https://www.youtube.com/watch?v=xSpVmEtnfO4"
     },
     {
         "event": "EuroPython",
         "keynote": true,
         "date": "2017-07-09T00:00:00Z",
         "city": "Rimini",
-        "country": "Italy"
+        "country": "Italy",
+        "video": "https://www.youtube.com/watch?v=D6kU7kJeX_s"
     },
     {
         "event": "Budapest BI Forum",
@@ -88,7 +90,8 @@
         "keynote": false,
         "date": "2014-02-06T00:00:00Z",
         "city": "New York",
-        "country": "USA"
+        "country": "USA",
+        "video": "https://vimeo.com/91899643"
     },
     {
         "event": "Nordic Data Journalism",

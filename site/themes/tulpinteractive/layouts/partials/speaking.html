@@ -20,7 +20,7 @@
                 <div class="event-list">
                     {{ range sort $.Site.Data.speaking.events "date" "desc" }}
                         {{ if (time .date).Before now}}
-                        <div class="name">{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}</div>
+                        <div class="name">{{ .event }}{{ if .keynote }}<span> — keynote</span>{{ end }}{{ if .video }}<a href="{{ .video }}" alt="{{ .event }}" target="_blank"><i class="fas fa-film"></i></a>{{ end }}</div>
                         <div class="location">{{ .country }}</div>
                         <div class="date">{{ (time .date).Year }}</div>
                         {{ end }}
