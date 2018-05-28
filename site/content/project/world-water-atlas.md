@@ -3,7 +3,7 @@ title = "World Water Atlas"
 client = "Deltares"
 date = 2018-03-02T21:11:17+01:00
 draft = false
-image = "wwa.png"
+image = "wwa.jpg"
 tagline = "Stories about living with water"
 link = "http://worldwateratlas.org"
 +++
