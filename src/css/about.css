@@ -18,8 +18,9 @@
 
 .about h2 {
     text-transform: uppercase;
-    font-size: 1.3em;
+    font-size: 1.6em;
     letter-spacing: 0.2em;
+    margin-bottom: 20px;
 }
 
 .about section {}
@@ -39,7 +40,7 @@
 
 .about .service h1 {
     grid-column: 1 / 13;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     font-size: 2.3rem;
 }
 
@@ -137,7 +138,8 @@
 .about .logos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 8vw;
+    /* grid-auto-rows: 8vw; */
+    grid-auto-rows: 120px;
     grid-gap: 2px;
     justify-content: center;
     align-items: center;
@@ -157,26 +159,101 @@
     filter: invert(1) brightness(0) sepia(1) hue-rotate(160deg) grayscale(0.2) opacity(0.7);
 }
 
-.about .workshop {
+.about .workshops {
     grid-column: 1 / 13;
+    padding: 50px;
+    background-color: #4a2054;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.about .workshops h2 {
+    color: white;
+}
+
+.about .workshops .workshop h3 {
+    font-size: 1.1rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.about .workshops .workshop {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 3fr 6fr 2fr;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+}
+
+.about .workshops .workshop a,
+.about .workshops .workshop a:link,
+.about .workshops .workshop a:active,
+.about .workshops .workshop a:visited {
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.8);
+}
+
+.about .workshops .workshop a:hover {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.about .workshops .workshop a.request-info {
+    justify-self: end;
+    background-color: white;
+    padding: 10px 20px;
+    height: 40px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #3e8db6;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    width: 150px;
+    text-align: center;
 }
 
 .about .books {
+    background-color: #9e4949;
+    padding: 50px;
     grid-column: 1 / 13;
-    display: grid;
-    grid-template-columns: 8fr 4fr;
-    background-color: white;
 }
 
 .about .books .wrapper {
-    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+    padding: 0;
 }
 
-.about .books .books-image {
-    width: 100%;
-    background-image: url(./../img/books.jpg);
-    background-size: cover;
-    background-position: center center;
+.about .books .wrapper .book {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 50px;
+    text-align: center;
+}
+
+.about .books .wrapper .book img {
+    max-height: 200px;
+    box-shadow: 5px 5px 20px rgba(33, 8, 8, 0.58);
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+}
+
+.about .books .wrapper .book .title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.about .books .wrapper .book .title span {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.8rem;
 }
 
 .about .exposure {
@@ -188,17 +265,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 50px;
-}
-
-.about .exposure h2 {
-    margin-bottom: 20px;
-}
-
-.about .awards,
-.about .exhibition,
-.about .judging,
-.about .books {
-    font-size: 1.2em;
 }
 
 .about .awards span {
@@ -238,25 +304,25 @@
     margin-top: 30px;
 }
 
-.about .office-data-art {
+.about .data-art {
     grid-column: 1 / 13;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     box-shadow: 5px 5px 27px rgba(0, 0, 0, 0.1);
 }
 
-.about .office-data-art>.description {
+.about .data-art>.description {
     grid-column: 1 / 6;
     padding: 70px;
     background-color: #fcfcfc;
     text-align: center;
 }
 
-.about .office-data-art>.description>h1 {
+.about .data-art>.description>h1 {
     margin-bottom: 30px;
 }
 
-.about .office-data-art>.description button {
+.about .data-art>.description button {
     color: white;
     background-color: #BB2025;
     padding: 10px 15px;
@@ -267,19 +333,33 @@
     font-family: 'Futura-pt', sans-serif;
 }
 
-.about .office-data-art>.example-image {
+.about .data-art>.example-image {
     grid-column: 6 / 13;
     background-image: url('/img/office-data-art.jpg');
     background-size: cover;
 }
 
-.about .office-data-art img {
+.about .data-art img {
     object-fit: cover;
 }
 
-@media screen and (max-width: 1280px) {}
+@media screen and (max-width: 1800px) {
+    .about .books .wrapper .book {
+        padding: 30px;
+    }
+    .about .books .wrapper {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
 
-@media screen and (max-width: 1800px) {}
+@media screen and (max-width: 1280px) {
+    .about .logos {
+        grid-auto-rows: 8vw;
+    }
+    .about .books .wrapper {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
 
 @media screen and (max-width: 980px) {
     .about .service h1 {
@@ -290,6 +370,22 @@
     }
     .about .speaking .event-section {
         grid-template-columns: none;
+    }
+    .about .workshops {
+        padding: 0;
+    }
+    .about .workshops h2,
+    .about .books h2 {
+        padding: 50px;
+    }
+    .about .books {
+        padding: 0;
+    }
+    .about .books .wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .about .books .wrapper .book {
+        padding: 20px;
     }
     /* .about .speaking .event-list {
         grid-template-columns: 4fr 2fr 160px;
@@ -309,9 +405,17 @@
     }
     .about .service h1 {
         font-size: 4vw;
+        margin-bottom: 50px;
     }
     .about .logo-container {
         grid-column: 6 / 13;
+    }
+    .about .workshops .workshop {
+        padding: 50px;
+        grid-template-columns: 3fr 1fr;
+    }
+    .about .workshops .workshop h3 {
+        grid-column: span 2;
     }
     .about .exposure .wrapper {
         grid-template-columns: 1fr;
