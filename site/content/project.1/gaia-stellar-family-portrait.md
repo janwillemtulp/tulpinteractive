@@ -7,4 +7,4 @@ image = "gaia.png"
 tagline = "Gaia 1.3 billion stars"
 link = "http://sci.esa.int/gaia-stellar-family-portrait/"
 +++
-An exploration of the Hertzsprung–Russell diagram, using data from the second data release of ESA’s [Gaia](http://sci.esa.int/gaia/) mission.
+TODO TODO TODO In collaboration with we have developed a website and visualization that allows users to explore stories related to water issues world wide. 

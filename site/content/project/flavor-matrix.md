@@ -6,4 +6,4 @@ draft = false
 image = "the-flavor-matrix.jpg"
 
 +++
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus hic minus dicta. Ratione pariatur debitis itaque, sit eum ipsa possimus? Sed possimus dignissimos ab recusandae quis, beatae totam voluptas dolor!
+A revolutionary new [guide](https://www.amazon.com/Flavor-Matrix-Science-Ingredients-Extraordinary/dp/0544809963) to pairing ingredients, based on a famous chef's groundbreaking research into the chemical basis of flavor.

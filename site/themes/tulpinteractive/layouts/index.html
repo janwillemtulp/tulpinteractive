@@ -2,6 +2,9 @@
 
 <main class="home ">
     <div class="container">
+        <div class="logo2">
+            <img src="img/logo2.png" width="353" alt="TULP interactive">
+        </div>
     {{ range $index, $element := (where (where .Site.AllPages "Section" "project") ".Kind" "==" "page") }}
         {{ $oddeven := cond (eq (mod $index 2) 0) "even" "odd" }}
         <article class="{{ $oddeven }}">
@@ -20,7 +23,7 @@
                 </div>
                 {{ if isset .Params "link" }}
                     <div class="project-link">
-                        <a href="{{ .Params.link }}" class="view-project">view project</a>
+                        <a href="{{ .Params.link }}" class="view-project" target="_blank">view project</a>
                     </div>
                 {{ end }}
             </div>

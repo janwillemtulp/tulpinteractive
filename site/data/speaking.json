@@ -14,20 +14,6 @@
         "country": "France"
     },
     {
-        "event": "[TODO]Open Data Science Conference",
-        "keynote": false,
-        "date": "2018-09-19T00:00:00Z",
-        "city": "London",
-        "country": "UK"
-    },
-    {
-        "event": "[TODO]IEEE Vis Practical Datavis",
-        "keynote": false,
-        "date": "2018-10-18T00:00:00Z",
-        "city": "Berlin",
-        "country": "Germany"
-    },
-    {
         "event": "Transimage",
         "keynote": true,
         "date": "2018-04-18T00:00:00Z",

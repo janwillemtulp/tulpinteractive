@@ -6,4 +6,4 @@ draft = false
 image = "eclipse-spiral.png"
 tagline = "Eclipses to the year 3000"
 +++
-A radial eclipse calender that shows eclipse occurrences for the next 3000 years.
+Showing eclipse occurrences for the next 3000 years.
