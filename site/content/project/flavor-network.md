@@ -1,6 +1,6 @@
 +++
 title = "The Flavor Network"
-client = "Scientifc American"
+client = "Scientific American"
 date = 2014-06-28T00:25:01+01:00
 draft = false
 image = "flavor-network.png"
