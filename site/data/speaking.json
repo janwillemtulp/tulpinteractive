@@ -7,6 +7,34 @@
         "country": "USA"
     },
     {
+        "event": "Future of Publishing (EU)",
+        "keynote": false,
+        "date": "2018-10-24T00:00:00Z",
+        "city": "Luxembourg",
+        "country": "Luxembourg"
+    },
+    {
+        "event": "Data Literacy Conference",
+        "keynote": false,
+        "date": "2018-10-05T00:00:00Z",
+        "city": "Aix-en-Provence",
+        "country": "France"
+    },
+    {
+        "event": "IEEE VIS in Practice",
+        "keynote": false,
+        "date": "2018-10-22T00:00:00Z",
+        "city": "Berlin",
+        "country": "Germany"
+    },
+    {
+        "event": "Open Data Science Conference",
+        "keynote": false,
+        "date": "2018-09-19T00:00:00Z",
+        "city": "London",
+        "country": "UK"
+    },
+    {
         "event": "OpenVisConf",
         "keynote": false,
         "date": "2018-05-14T00:00:00Z",
