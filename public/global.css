@@ -722,6 +722,18 @@ footer .social a:hover {
   text-align: right;
 }
 
+.contact-details a,
+.contact-details a:link,
+.contact-details a:active,
+.contact-details a:visited {
+  border-bottom: 1px dotted #517d87;
+  color: #517d87;
+}
+
+.contact-details a:hover {
+  border-bottom: 1px solid #517d87;
+}
+
 .contact-details ul:first-child {
   margin-bottom: 20px;
 }
