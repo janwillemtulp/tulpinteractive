@@ -71,6 +71,59 @@
     />
     <link rel="stylesheet" href="/global.css" />
     <link rel="stylesheet" href="/bundle.css" />
+    <style>
+      @keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-o-keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .animate-flicker {
+        -webkit-animation: flickerAnimation 3s infinite;
+        -moz-animation: flickerAnimation 3s infinite;
+        -o-animation: flickerAnimation 3s infinite;
+        animation: flickerAnimation 3s infinite;
+      }
+    </style>
   </head>
   <body>
     <nav class="" role="navigation" aria-label="main navigation">
@@ -85,13 +138,31 @@
       </div>
 
       <div class="menu">
-        <div class="">
+        <div class="" style="display: inline-block;">
+          <span
+            class="animate-flicker"
+            style="
+              margin-right: -30px;
+              font-weight: bold;
+              color: #ac302d;
+              font-size: 10px;
+              padding: 0 10px;
+            "
+            >NEW:</span
+          ><a
+            href="https://mailchi.mp/234b2495acb7/creative-dataviz-design-course"
+            target="_blank"
+          >
+            Courses</a
+          >
+        </div>
+        <div class="" style="display: inline-block;">
           <a href="/about/" class="">About</a>
         </div>
       </div>
     </nav>
 
-    <main class="home ">
+    <main class="home">
       <div class="container">
         <div class="logo2">
           <img src="img/logo2.png" width="353" alt="TULP interactive" />
@@ -999,7 +1070,7 @@
     <script src="/bundle.js"></script>
     <script>
       var _gaq = [['_setAccount', 'UA-65254096-1'], ['_trackPageview']]
-      ;(function(d, t) {
+      ;(function (d, t) {
         var g = d.createElement(t),
           s = d.getElementsByTagName(t)[0]
         g.src =
