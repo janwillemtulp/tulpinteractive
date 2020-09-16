@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="generator" content="Hugo 0.35" />
+    <script src="//use.typekit.net/rrw0jtb.js"></script>
+    <script>
+      try {
+        Typekit.load()
+      } catch (e) {}
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta author="TULP interactive" />
+    <meta
+      description="TULP interactive — data experience design / creative data visualization"
+    />
+    <meta
+      keywords="data visualization tulp interactive dataviz visualisation viz creative"
+    />
+    <title>TULP interactive</title>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+      integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/bundle.css" />
+    <style>
+      @keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-o-keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-moz-keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes flickerAnimation {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .animate-flicker {
+        -webkit-animation: flickerAnimation 3s infinite;
+        -moz-animation: flickerAnimation 3s infinite;
+        -o-animation: flickerAnimation 3s infinite;
+        animation: flickerAnimation 3s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="" role="navigation" aria-label="main navigation">
+      <div class="brand">
+        <a class="" href="/">
+          <img
+            src="/img/logo.png"
+            alt="TULP interactive"
+            class="img-responsive"
+          />
+        </a>
+      </div>
+
+      <div class="menu">
+        <div class="" style="display: inline-block;">
+          <span
+            class="animate-flicker"
+            style="
+              margin-right: -30px;
+              font-weight: bold;
+              color: #ac302d;
+              font-size: 10px;
+              padding: 0 10px;
+            "
+            >NEW:</span
+          ><a
+            href="https://mailchi.mp/234b2495acb7/creative-dataviz-design-course"
+            target="_blank"
+          >
+            Courses</a
+          >
+        </div>
+        <div class="" style="display: inline-block;">
+          <a href="/about/" class="">About</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="about">
+      <div class="container">
+        <section class="service">
+          <h1>
+            Hi, I'm Jan Willem,<br />I create <span>Data Visualizations</span>
+          </h1>
+          <img class="me" src="/img/me_cropped.png" alt="" />
+
+          <section class="logo-container">
+            <div class="logos">
+              <div class="logo">
+                <img src="/img/logos/esa.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/sciam.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/google.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/nature.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/wef.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/rwdi.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/wfp.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/unicef.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/nielsen.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/schiphol.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/philips.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/popsci.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/national_geographic.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/heineken.svg" alt="" />
+              </div>
+              <div class="logo">
+                <img src="/img/logos/ns.svg" alt="" />
+              </div>
+            </div>
+          </section>
+        </section>
+        <section class="speaking">
+          <img src="/img/euro_python_duotone.jpg" alt="" />
+          <div class="wrapper">
+            <h2>Notable talks</h2>
+            <div class="conference-list">
+              <div class="event-section">
+                <h4>Upcoming</h4>
+                <div class="event-list">
+                  <div class="name">
+                    Uphill Conf
+                    <a
+                      href="https://uphillconf.com/"
+                      alt="Uphill Conf"
+                      target="_blank"
+                      ><i class="fas fa-external-link-alt"></i
+                    ></a>
+                  </div>
+                  <div class="location">Switzerland</div>
+                  <div class="date">April 23, 2020</div>
+                </div>
+              </div>
+              <div class="event-section">
+                <h4>Past</h4>
+                <div class="event-list">
+                  <div class="name">DataVis Camp<span> — keynote</span></div>
+                  <div class="location">The Netherlands</div>
+                  <div class="date">2020</div>
+
+                  <div class="name">Indo Data Week<span> — keynote</span></div>
+                  <div class="location">India</div>
+                  <div class="date">2019</div>
+
+                  <div class="name">Graphic Hunters S-H-O-W</div>
+                  <div class="location">The Netherlands</div>
+                  <div class="date">2019</div>
+
+                  <div class="name">Future of Publishing (EU)</div>
+                  <div class="location">Luxembourg</div>
+                  <div class="date">2018</div>
+
+                  <div class="name">IEEE VIS in Practice</div>
+                  <div class="location">Germany</div>
+                  <div class="date">2018</div>
+
+                  <div class="name">Data Literacy Conference</div>
+                  <div class="location">France</div>
+                  <div class="date">2018</div>
+
+                  <div class="name">Open Data Science Conference</div>
+                  <div class="location">UK</div>
+                  <div class="date">2018</div>
+
+                  <div class="name">OpenVisConf</div>
+                  <div class="location">France</div>
+                  <div class="date">2018</div>
+
+                  <div class="name">Transimage<span> — keynote</span></div>
+                  <div class="location">Scotland</div>
+                  <div class="date">2018</div>
+
+                  <div class="name">DataVizFestival</div>
+                  <div class="location">The Netherlands</div>
+                  <div class="date">2018</div>
+
+                  <div class="name">
+                    EuroPython<span> — keynote</span
+                    ><a
+                      href="https://www.youtube.com/watch?v=D6kU7kJeX_s"
+                      alt="EuroPython"
+                      target="_blank"
+                      ><i class="fas fa-film"></i
+                    ></a>
+                  </div>
+                  <div class="location">Italy</div>
+                  <div class="date">2017</div>
+
+                  <div class="name">
+                    UN/IFAD Evaluation<a
+                      href="https://www.youtube.com/watch?v=xSpVmEtnfO4"
+                      alt="UN/IFAD Evaluation"
+                      target="_blank"
+                      ><i class="fas fa-film"></i
+                    ></a>
+                  </div>
+                  <div class="location">Italy</div>
+                  <div class="date">2017</div>
+
+                  <div class="name">BNO IMG Lab</div>
+                  <div class="location">The Netherlands</div>
+                  <div class="date">2016</div>
+
+                  <div class="name">Nordic Data Journalism</div>
+                  <div class="location">Finland</div>
+                  <div class="date">2016</div>
+
+                  <div class="name">Visualized</div>
+                  <div class="location">USA</div>
+                  <div class="date">2015</div>
+
+                  <div class="name">Visualizing Knowledge</div>
+                  <div class="location">Finland</div>
+                  <div class="date">2015</div>
+
+                  <div class="name">Big Data for Media</div>
+                  <div class="location">UK</div>
+                  <div class="date">2015</div>
+
+                  <div class="name">Budapest BI Forum</div>
+                  <div class="location">Hungary</div>
+                  <div class="date">2014</div>
+
+                  <div class="name">DrupalJam<span> — keynote</span></div>
+                  <div class="location">The Netherlands</div>
+                  <div class="date">2014</div>
+
+                  <div class="name">
+                    Visualized<a
+                      href="https://vimeo.com/91899643"
+                      alt="Visualized"
+                      target="_blank"
+                      ><i class="fas fa-film"></i
+                    ></a>
+                  </div>
+                  <div class="location">USA</div>
+                  <div class="date">2014</div>
+
+                  <div class="name">Malofiej</div>
+                  <div class="location">Spain</div>
+                  <div class="date">2013</div>
+
+                  <div class="name">Infographics Congres</div>
+                  <div class="location">The Netherlands</div>
+                  <div class="date">2013</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="exposure">
+          <div class="wrapper">
+            <section class="awards">
+              <h2>Awards</h2>
+              <ul>
+                <li>&star; HPE Art Award <span>&centerdot; nominated</span></li>
+                <li>
+                  &star; Malofiej <span>&centerdot; silver &amp; bronze</span>
+                </li>
+                <li>
+                  &star; Information is Beautiful Awards<span
+                    >&centerdot; silver</span
+                  >
+                </li>
+                <li>
+                  &star; Visualizing.org<span>&centerdot; multiple wins</span>
+                </li>
+              </ul>
+            </section>
+            <section class="exhibition">
+              <h2>Exhibitions</h2>
+              <ul>
+                <li>&bull; <span>1 2 3 Data</span>, France (2018)</li>
+                <li>&bull; <span>Natural Recall</span>, Italy (2014)</li>
+                <li>
+                  &bull; <span>Ars Electronica</span>, Austria (2012, 2019)
+                </li>
+                <li>&bull; <span>The Art of Networks</span>, USA (2012)</li>
+              </ul>
+            </section>
+            <section class="judging">
+              <h2>Judging</h2>
+              <ul>
+                <li>&bull; Information is Beautiful Awards</li>
+                <li>&bull; Visualizing Cities</li>
+                <li>&bull; Malofiej</li>
+                <li>&bull; National Science Foundation Vizzies</li>
+              </ul>
+            </section>
+          </div>
+        </section>
+
+        <section class="workshops">
+          <h2>Workshops</h2>
+          <div class="workshop">
+            <h3>Dataviz Fundamentals</h3>
+            <p>
+              An introduction to the principles of data visualization design.
+              The goal of the workshop is to increase data- and visual literacy.
+              No experience required. No computer is required during the
+              workshop — all exercises are done with pen and paper.
+            </p>
+            <a
+              class="request-info"
+              href="mailto:info@tulpinteractive.com?subject=Request for information about the Dataviz Fundatmentals workshop"
+              target="_blank"
+              >request info</a
+            >
+          </div>
+          <div class="workshop">
+            <h3>Introduction D3</h3>
+            <p>
+              An introduction to creating visualizations with
+              <a href="http://d3js.org" target="_blank">D3</a>. The goal of the
+              workshop is to learn the most common parts and usage of the D3
+              visualization library. Basic programming skills are required.
+            </p>
+            <a
+              class="request-info"
+              href="mailto:info@tulpinteractive.com?subject=Request for information about the Introduction D3 workshop"
+              target="_blank"
+              >request info</a
+            >
+          </div>
+        </section>
+        <section class="books">
+          <h2>Notable book appearances</h2>
+          <div class="wrapper">
+            <div class="book">
+              <a
+                href="https://www.papress.com/html/product.details.dna?isbn=9781616895280"
+                target="_blank"
+              >
+                <img src="/img/book-of-circles.jpg" alt="" />
+              </a>
+              <div class="title">The book of Circles</div>
+              <div class="author">Manuel Lima</div>
+              <div class="year">2017</div>
+            </div>
+            <div class="book">
+              <a
+                href="https://www.amazon.fr/Manuel-datavisualisation-M%C3%A9thodes-Cas-pratiques/dp/210073881X"
+                target="_blank"
+              >
+                <img src="/img/manuel-de-data-visualisation.jpg" alt="" />
+              </a>
+              <div class="title">Manuel de data visualisation</div>
+              <div class="author">Jean Marie Lagnel</div>
+              <div class="year">2017</div>
+            </div>
+            <div class="book">
+              <a
+                href="http://shop.oreilly.com/product/0636920026938.do"
+                target="_blank"
+              >
+                <img
+                  src="/img/interactive-data-visualization-for-the-web.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="title">Interactive data visualizaton for the web</div>
+              <div class="author">Scott Murray</div>
+              <div class="year">2017</div>
+            </div>
+            <div class="book">
+              <a
+                href="https://www.amazon.com/Data-Visualization-Success-Interviews-Experienced/dp/1864707208"
+                target="_blank"
+              >
+                <img src="/img/data-visualization-for-success.jpg" alt="" />
+              </a>
+              <div class="title">Data visualization for success</div>
+              <div class="author">Steven Braun</div>
+              <div class="year">2017</div>
+            </div>
+            <div class="book">
+              <a
+                href="https://www.amazon.com/Data-Visualisation-Handbook-Driven-Design/dp/1473912148"
+                target="_blank"
+              >
+                <img src="/img/data-visualisation.jpg" alt="" />
+              </a>
+              <div class="title">Data visualisation</div>
+              <div class="author">Andy Kirk</div>
+              <div class="year">2016</div>
+            </div>
+            <div class="book">
+              <a
+                href="https://www.amazon.com/Best-American-Infographics-2016-%C2%AE/dp/0544556380"
+                target="_blank"
+              >
+                <img
+                  src="/img/the-best-american-infographics-2016.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="title">The best American infographics 2016</div>
+              <div class="author">Gareth Cook</div>
+              <div class="year">2016</div>
+            </div>
+            <div class="book">
+              <a
+                href="https://www.springer.com/gp/book/9781447165958"
+                target="_blank"
+              >
+                <img src="/img/new-challenges-for-data-design.jpg" alt="" />
+              </a>
+              <div class="title">New challenges for data design</div>
+              <div class="author">David Behanic</div>
+              <div class="year">2015</div>
+            </div>
+            <div class="book">
+              <a
+                href="http://www.papress.com/html/product.details.dna?isbn=9781616892180"
+                target="_blank"
+              >
+                <img src="/img/book-of-trees.jpg" alt="" />
+              </a>
+              <div class="title">The book of Trees</div>
+              <div class="author">Manuel Lima</div>
+              <div class="year">2014</div>
+            </div>
+            <div class="book">
+              <a
+                href="https://www.amazon.com/Best-American-Infographics-2013/dp/B00LH5T0QM"
+                target="_blank"
+              >
+                <img
+                  src="/img/the-best-american-infographics-2013.jpg"
+                  alt=""
+                />
+              </a>
+              <div class="title">The best American infographics</div>
+              <div class="author">Gareth Cook</div>
+              <div class="year">2013</div>
+            </div>
+            <div class="book">
+              <a
+                href="https://www.amazon.com/gp/product/0321834739/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321834739&linkCode=as2&tag=thefunart03-20&tag=donations09-20"
+                target="_blank"
+              >
+                <img src="/img/the-functional-art.jpg" alt="" />
+              </a>
+              <div class="title">The functional art</div>
+              <div class="author">Alberto Cairo</div>
+              <div class="year">2013</div>
+            </div>
+            <div class="book">
+              <a
+                href="https://www.amazon.com/Design-Information-Introduction-Histories-Visualizations/dp/1592538061"
+                target="_blank"
+              >
+                <img src="/img/design-for-information.jpg" alt="" />
+              </a>
+              <div class="title">Design for information</div>
+              <div class="author">Isabel Meirelles</div>
+              <div class="year">2013</div>
+            </div>
+            <div class="book">
+              <a
+                href="https://www.amazon.com/Infographic-Design-Charts-David-Choi/dp/1611750326"
+                target="_blank"
+              >
+                <img src="/img/infographic-design.jpg" alt="" />
+              </a>
+              <div class="title">Infographic design</div>
+              <div class="author">Choi's Gallery</div>
+              <div class="year">2012</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="my-story">
+          <h2>My story</h2>
+          <div class="my-story-container">
+            <img src="/img/me_working.jpg" alt="me working" />
+            <div>
+              <p>
+                Being raised in a creative family, my wish as a child had always
+                been to become an artist. Yet at an early age I found out that
+                the world of computers fascinated me also. So, as a synthesis, I
+                decided to study interaction design, hoping to find a job where
+                I could apply my skills both on design and software.
+              </p>
+              <p>
+                After my study, it appeared that the jobs I was looking for were
+                hard to find. When I look back now, I clearly see how my career
+                repeatedly switched between working for very creative companies
+                that always appeared to offer too little technical challenge for
+                me, and working for very technical companies where there was not
+                enough work that met my need for designing.
+              </p>
+              <p>
+                In 2010 I found out that there existed such a thing as data
+                visualization. For me that was, and still is, the ultimate
+                combination of software, design and interaction. I decided to
+                become a freelancer. One year later I started my company TULP
+                Interactive. This turned out to be the right choice: I have been
+                creating data visualizations ever since.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="data-art">
+          <div class="description">
+            <h1>Data Art</h1>
+            <p>
+              Many organizations have art on the wall. But wouldn't it be even
+              greater if that piece of art was a unique representation of your
+              company? An abstract image, based on data of your organization.
+            </p>
+            <button>download PDF brochure</button>
+          </div>
+          <div class="example-image"></div>
+        </section>
+
+        <section class="newsletter-signup">
+          <form
+            style="text-align: center;"
+            action="https://tinyletter.com/tulpinteractive"
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open(`https://tinyletter.com/tulpinteractive`, 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+          >
+            <div class="field">
+              <label class="label">subscribe to my newsletter</label>
+              <div class="control has-icons-left has-icons-right">
+                <input
+                  id="tlemail"
+                  name="email"
+                  class="input"
+                  type="email"
+                  placeholder="Enter your email address"
+                  value=""
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <input type="hidden" value="1" name="embed" />
+            <div class="control">
+              <input class="button is-link" type="submit" value="subscribe" />
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="main-footer-content container">
+        <div class="contact-details">
+          <ul>
+            <li class="company-name">TULP interactive</li>
+            <li>Doldersestraat 76</li>
+            <li>2574TD Den Haag</li>
+            <li>The Netherlands</li>
+          </ul>
+          <ul>
+            <li>
+              <a href="mailto:info@tulpinteractive.com" target="_blank"
+                >info@tulpinteractive.com</a
+              >
+            </li>
+            <li>+31 6 2455 1242</li>
+          </ul>
+        </div>
+        <div class="social">
+          <div>
+            <a href="https://twitter.com/JanWillemTulp" target="_blank">
+              <i class="fab fa-twitter"></i>@JanWillemTulp
+            </a>
+          </div>
+          <div>
+            <a href="https://nl.pinterest.com/janwillemtulp/" target="_blank">
+              <i class="fab fa-pinterest"></i>janwillemtulp
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://www.linkedin.com/in/janwillemtulp/"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin"></i>janwillemtulp
+            </a>
+          </div>
+          <div class="privacy-statement">
+            <a href="">privacy statement</a>
+          </div>
+        </div>
+      </div>
+      <div class="sticky-contact">
+        <div class="container">
+          <div>
+            <a href="mailto:janwillem@tulpinteractive.com" target="_blank"
+              >janwillem@tulpinteractive.com</a
+            >
+          </div>
+          <div>
+            <a href="tel:+31624551242" target="_blank">+31 (0)6 2455 1242</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="/bundle.js"></script>
+    <script>
+      var _gaq = [['_setAccount', 'UA-65254096-1'], ['_trackPageview']]
+      ;(function (d, t) {
+        var g = d.createElement(t),
+          s = d.getElementsByTagName(t)[0]
+        g.src =
+          ('https:' == location.protocol ? '//ssl' : '//www') +
+          '.google-analytics.com/ga.js'
+        s.parentNode.insertBefore(g, s)
+      })(document, 'script')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/8.9.0/lazyload.min.js"></script>
+    <script>
+      new LazyLoad()
+    </script>
+  </body>
+</html>
