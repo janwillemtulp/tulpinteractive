@@ -1,0 +1,237 @@
+{
+  "projects": [
+    {
+      "title": "Fly Brain",
+      "client": "Howard Hughes Medical Center",
+      "description": "An interactive visualization of a connectome that helps researchers communicate how individual neurons in the brain of a fruit fly (Drosophila melanogaster) are connected to each other",
+      "tagline": "An interactive visualization that helps researchers communicate neuron connectivity of the brain of a fruit fly.",
+      "image": "fly-brain.png",
+      "altText": "fruit fly brain"
+    },
+    {
+      "title": "OTDD",
+      "client": "Microsoft Research",
+      "description": "",
+      "tagline": "Measuring dataset similarity using optimal transport",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "client": "",
+      "description": "",
+      "tagline": "",
+      "image": "",
+      "altText": "",
+      "url": ""
+    }
+  ]
+}
