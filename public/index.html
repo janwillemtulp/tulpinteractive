@@ -7,6 +7,7 @@
       try {
         Typekit.load()
       } catch (e) {}
+
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -171,6 +172,75 @@
         <article class="even">
           <div class="feature-text">
             <div class="project-client">
+              <h3>University of Innsbruck</h3>
+            </div>
+            <div class="project-title">
+              <h1>Ernst von Glasersfeld archive</h1>
+            </div>
+            <div class="project-tagline">
+              <p>
+                Visualization of the archive, annotations of his works and library of German philosopher Ernst von Glasersfeld.
+              </p>
+            </div>
+            <div class="project-description">
+              <p>
+                Visualization of the archive, annotations of his works and library of German philosopher Ernst von Glasersfeld
+              </p>
+            </div>
+            <!-- <div class="project-link">
+              <a
+                href="https://wdr2021.worldbank.org/"
+                class="view-project"
+                target="_blank"
+                >view project</a
+              >
+            </div> -->
+          </div>
+          <div class="feature-image">
+            <img
+              src="img/glasersfeld.png"
+              alt="Ernst von Glasersfeld archive"
+            />
+          </div>
+        </article>
+
+        <article class="odd">
+          <div class="feature-text">
+            <div class="project-client">
+              <h3>Scientific American</h3>
+            </div>
+            <div class="project-title">
+              <h1>100 Years of Bird Banding</h1>
+            </div>
+            <div class="project-tagline">
+              <p>
+                A view of 100 years of bird banding of the <a href="https://www.usgs.gov/centers/eesc/science/bird-banding-laboratory?qt-science_center_objects=0#qt-science_center_objects" target="_blank" title="USGS Bird Banding Laboratory">USGS Bird Banding Laboratory</a>.
+              </p>
+            </div>
+            <div class="project-description">
+              <p>
+                A visual exploration of 100 years of bird banding data from the <a href="https://www.usgs.gov/centers/eesc/science/bird-banding-laboratory?qt-science_center_objects=0#qt-science_center_objects" target="_blank" title="USGS Bird Banding Laboratory">USGS Bird Banding Laboratory</a>
+              </p>
+            </div>
+    
+          </div>
+
+          <div class="feature-image">
+            <img
+              id="bird-banding-img"
+              
+              alt="100 years of bird banding"
+            />
+          </div>
+        </article>
+
+        <script lang="Javascipt">
+            document.getElementById('bird-banding-img').src = Math.random() < 0.5 ? 'img/birdbanding.png' : 'img/birdbanding2.png'
+        </script>
+
+        <article class="even">
+          <div class="feature-text">
+            <div class="project-client">
               <h3>World Bank</h3>
             </div>
             <div class="project-title">
@@ -204,8 +274,6 @@
               >
             </div>
           </div>
-          <!-- TODO: https://web.dev/lazy-loading-video/ 
-          https://www.keycdn.com/blog/video-optimization -->
           <div class="feature-image">
             <img
               src="img/worldbank-wdr.png"
@@ -1350,7 +1418,7 @@
         </div>
       </div>
     </footer>
-    <script src="build/bundle.js"></script>
+    <script src="build/bundle.js"></>
     <script>
       var _gaq = [['_setAccount', 'UA-65254096-1'], ['_trackPageview']]
       ;(function (d, t) {
