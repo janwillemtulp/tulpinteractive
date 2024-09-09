@@ -1,6 +1,7 @@
 /*
   Define your resets here or use something like Normalize.css if you like
  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
 
 html,
 body {
@@ -16,6 +17,8 @@ body {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  background-color: #b4c1c9;
+  font-family: 'Inter', sans-serif;
 }
 
 a {
@@ -29,10 +32,14 @@ a {
   grid-template-columns: repeat(12, 1fr);
   padding-top: 100px;
   background-color: #fdd835;
-  -webkit-box-shadow: 5px 5px 27px rgba(0, 0, 0, .15);
-  box-shadow: 5px 5px 27px rgba(0, 0, 0, .15);
+  -webkit-box-shadow: 5px 5px 27px rgba(0, 0, 0, 0.15);
+  box-shadow: 5px 5px 27px rgba(0, 0, 0, 0.15);
   /* border: 1px solid #b6bcbd1a; */
-  color: rgba(0, 0, 0, .7);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.about {
+  font-family: 'Inter', sans-serif;
 }
 
 .about h1,
@@ -40,7 +47,8 @@ a {
 .about h3,
 .about h4 {
   /* color: #3a555a; */
-  color: rgba(0, 0, 0, .7);
+  font-family: 'Oswald', sans-serif;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .about h2 {
@@ -101,7 +109,7 @@ a {
 .about .speaking .event-list {
   display: grid;
   grid-template-columns: 3fr 2fr 200px;
-  font-size: 1.2em;
+  font-size: 1rem;
 }
 
 .about .speaking .event-list span {
@@ -112,7 +120,7 @@ a {
 
 .about .speaking .name {
   font-weight: bold;
-  border-bottom: 1px solid rgba(2, 39, 81, .1);
+  border-bottom: 1px solid rgba(2, 39, 81, 0.1);
   padding: 3px 0;
 }
 
@@ -123,13 +131,13 @@ a {
 }
 
 .about .speaking .location {
-  border-bottom: 1px solid rgba(2, 39, 81, .1);
+  border-bottom: 1px solid rgba(2, 39, 81, 0.1);
   padding: 3px 0;
 }
 
 .about .speaking .date {
   text-align: end;
-  border-bottom: 1px solid rgba(2, 39, 81, .1);
+  border-bottom: 1px solid rgba(2, 39, 81, 0.1);
   padding: 3px 0;
 }
 
@@ -146,7 +154,7 @@ a {
 .about .speaking,
 .about .speaking h2,
 .about .speaking h4 {
-  color: rgba(0, 22, 73, .9);
+  color: rgba(0, 22, 73, 0.9);
 }
 
 .about .speaking h4 {
@@ -191,15 +199,17 @@ a {
   max-height: 60%;
   /* max-height: 80px; */
   filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="1 0" /><feFuncG type="table" tableValues="1 0" /><feFuncB type="table" tableValues="1 0" /></feComponentTransfer><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="1" /><feFuncG type="linear" slope="1" /><feFuncB type="linear" slope="1" /></feComponentTransfer><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.393 0.769 0.189 0 0 0.349 0.686 0.168 0 0 0.272 0.534 0.131 0 0 0 0 0 1 0" /><feColorMatrix type="hueRotate" color-interpolation-filters="sRGB" values="160" /><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.84252 0.14303999999999994 0.014439999999999995 0 0 0.04252 0.94304 0.014439999999999995 0 0 0.04252 0.14303999999999994 0.81444 0 0 0 0 0 1 0" /><feComponentTransfer color-interpolation-filters="sRGB"><feFuncA type="table" tableValues="0 0.7" /></feComponentTransfer></filter></svg>#filter');
-  -webkit-filter: invert(1) brightness(0) sepia(1) hue-rotate(160deg) grayscale(0.2) opacity(0.7);
-  filter: invert(1) brightness(0) sepia(1) hue-rotate(160deg) grayscale(0.2) opacity(0.7);
+  -webkit-filter: invert(1) brightness(0) sepia(1) hue-rotate(160deg)
+    grayscale(0.2) opacity(0.7);
+  filter: invert(1) brightness(0) sepia(1) hue-rotate(160deg) grayscale(0.2)
+    opacity(0.7);
 }
 
 .about .workshops {
   grid-column: 1 / 13;
   padding: 50px;
   background-color: #4a2054;
-  color: rgba(255, 255, 255, .8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .about .workshops h2 {
@@ -207,10 +217,6 @@ a {
 }
 
 .about .workshops .workshop h3 {
-  font-size: 17.6px;
-  font-size: 1.1rem;
-  letter-spacing: 3.2px;
-  letter-spacing: 0.2rem;
   text-transform: uppercase;
   color: white;
 }
@@ -220,7 +226,7 @@ a {
   grid-gap: 20px;
   grid-template-columns: 4fr 6fr 2fr;
   margin-bottom: 20px;
-  background-color: rgba(255, 255, 255, .1);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
 }
 
@@ -228,12 +234,12 @@ a {
 .about .workshops .workshop a:link,
 .about .workshops .workshop a:active,
 .about .workshops .workshop a:visited {
-  color: rgba(255, 255, 255, .8);
-  border-bottom: 1px dotted rgba(255, 255, 255, .8);
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.8);
 }
 
 .about .workshops .workshop a:hover {
-  border-bottom: 1px solid rgba(255, 255, 255, .8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .about .workshops .workshop a.request-info {
@@ -249,8 +255,8 @@ a {
   letter-spacing: 0.8px;
   letter-spacing: 0.05rem;
   /* border-radius: 20px; */
-  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, .1);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
   width: 150px;
   text-align: center;
@@ -270,9 +276,12 @@ a {
 }
 
 .about .books .wrapper .book {
-  background-color: rgba(255, 255, 255, .1);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 30px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .about .books .wrapper .book img {
@@ -288,7 +297,7 @@ a {
   font-size: 19.2px;
   font-size: 1.2rem;
   margin-bottom: 5px;
-  color: rgba(0, 0, 0, .85);
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .about .books .wrapper .book .year {
@@ -345,10 +354,6 @@ a {
 }
 
 .about .my-story p {
-  line-height: 32px;
-  line-height: 2rem;
-  font-size: 19.2px;
-  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
@@ -362,24 +367,24 @@ a {
   grid-column: 1 / 13;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  -webkit-box-shadow: 5px 5px 27px rgba(0, 0, 0, .1);
-  box-shadow: 5px 5px 27px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 5px 5px 27px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 27px rgba(0, 0, 0, 0.1);
 }
 
-.about .data-art>.description {
+.about .data-art > .description {
   grid-column: 1 / 6;
   padding: 70px;
   background-color: #fcfcfc;
   text-align: center;
 }
 
-.about .data-art>.description>h1 {
+.about .data-art > .description > h1 {
   margin-bottom: 30px;
 }
 
-.about .data-art>.description button {
+.about .data-art > .description button {
   color: white;
-  background-color: #BB2025;
+  background-color: #bb2025;
   padding: 10px 15px;
   margin-top: 50px;
   border: none;
@@ -388,7 +393,7 @@ a {
   font-family: 'Futura-pt', sans-serif;
 }
 
-.about .data-art>.example-image {
+.about .data-art > .example-image {
   grid-column: 6 / 13;
   background-image: url('/img/office-data-art.jpg');
   background-size: cover;
@@ -407,7 +412,7 @@ a {
 
 .about .newsletter-signup .button {
   color: white;
-  background-color: #BB2025;
+  background-color: #bb2025;
   border: none;
   text-decoration: none;
   font-size: 1em;
@@ -479,7 +484,6 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-
   /* @media screen and (max-width: 736px) { */
   .about .logos {
     grid-template-columns: repeat(2, 1fr);
@@ -501,11 +505,11 @@ a {
     grid-column: 6 / 13;
   }
 
-  .about .data-art>.description {
+  .about .data-art > .description {
     grid-column: 1 / 13;
   }
 
-  .about .data-art>.example-image {
+  .about .data-art > .example-image {
     grid-column: 1 / 13;
     height: 100vw;
   }
@@ -586,14 +590,11 @@ body {
   font-family: 'Futura-pt', sans-serif;
   /* text-rendering: optimizeLegibility; */
   /* font-feature-settings: "kern" on; */
-  background-color: #e9eeef;
+  background-color: #b4c1c9;
 }
 
 p {
-  line-height: 32px;
-  line-height: 2rem;
-  font-size: 19.2px;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 main {
@@ -605,10 +606,9 @@ main {
 h1 {
   font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 3.2px;
-  letter-spacing: 0.2rem;
-  font-size: 36.8px;
-  font-size: 2.3rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
 }
 
 .logo2 {
@@ -628,10 +628,16 @@ h1 {
 }
 
 footer {
-  background-color: hsla(190, 16%, 89%, 1);
+  background-color: #b4c1c9;
   width: 100%;
   height: 280px;
-  border-top: 1px solid hsla(190, 17%, 85%, 1);
+}
+
+footer li,
+footer li a,
+footer li a:active,
+footer li a:visited {
+  color: black;
 }
 
 footer .sticky-contact svg {
@@ -654,7 +660,7 @@ footer .sticky-contact {
   background-color: hsl(194, 31%, 12%);
   font-weight: 400;
   font-size: 0.8em;
-  color: rgba(255, 255, 255, .8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 footer .sticky-contact i {
@@ -662,8 +668,8 @@ footer .sticky-contact i {
 }
 
 footer .sticky-contact a {
-  color: rgba(255, 255, 255, .8);
-  border-bottom: 1px dotted rgba(255, 255, 255, .3);
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
 }
 
 footer .sticky-contact a:hover {
@@ -710,7 +716,7 @@ footer .social a:link,
 footer .social a:active,
 footer .social a:visited {
   border-bottom: 1px dotted #517d87;
-  color: #517d87;
+  color: black;
 }
 
 footer .social a:hover {
@@ -718,7 +724,7 @@ footer .social a:hover {
 }
 
 .contact-details {
-  color: hsla(190, 86%, 20%, .7);
+  color: hsla(190, 86%, 20%, 0.7);
   text-align: right;
 }
 
@@ -726,8 +732,8 @@ footer .social a:hover {
 .contact-details a:link,
 .contact-details a:active,
 .contact-details a:visited {
-  border-bottom: 1px dotted #517d87;
-  color: #517d87;
+  border-bottom: 1px dotted black;
+  color: black;
 }
 
 .contact-details a:hover {
@@ -749,8 +755,7 @@ footer .newsletter-signup {
 
 nav {
   height: 80px;
-  background-color: #e9eeef;
-  ;
+  background-color: #b4c1c9;
   display: grid;
   grid-template-columns: 100px 1fr;
   grid-gap: 20px;
@@ -773,10 +778,10 @@ nav .menu {
 }
 
 nav .menu a {
-  color: hsla(190, 86%, 20%, .7);
+  color: black;
   margin-left: 20px;
-  font-size: 17.6px;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
 }
 
 nav .brand img {
@@ -793,8 +798,8 @@ article {
   display: grid;
   margin-bottom: 60px;
   width: 100%;
-  -webkit-box-shadow: 5px 5px 37px rgb(185, 197, 199);
-  box-shadow: 5px 5px 37px rgb(185, 197, 199);
+  -webkit-box-shadow: 5px 5px 37px #557182;
+  box-shadow: 5px 5px 37px #557182;
   grid-template-rows: 1fr 512px;
   /* grid-auto-rows: minmax(auto, 512px); */
 }
@@ -802,25 +807,25 @@ article {
 .feature-text {
   padding: 50px;
   /* padding: 3vw; */
-  background-color: #fcfcfc;
+  background-color: #f3f5f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .project-client h3 {
-  text-transform: uppercase;
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
-  letter-spacing: 1.6px;
-  letter-spacing: 0.1rem;
-  color: #aaa;
+  font-family: 'Inter', sans-serif;
+  color: #0681c7;
 }
 
 .project-title h1 {
-  font-size: 38.4px;
-  font-size: 2.4rem;
-  font-weight: 300;
+  font-size: 2.2rem;
+  font-weight: 700;
   margin-bottom: 0;
   color: #000;
+  font-family: 'Oswald', sans-serif;
 }
 
 .project-tagline {
@@ -839,9 +844,9 @@ article {
 
 .project-description p {
   line-height: 32px;
-  line-height: 2rem;
-  font-size: 19.2px;
-  font-size: 1.2rem;
+  line-height: 1.6rem;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .project-description a {
@@ -855,19 +860,24 @@ article {
 }
 
 .project-link {
-  margin-top: 40px
+  margin-top: 40px;
 }
 
 .project-link a {
   padding: 15px 25px;
-  border: 2px solid #4a4a4a;
-  font-size: 12.8px;
   font-size: 0.8rem;
-  letter-spacing: 1.6px;
-  letter-spacing: 0.1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   background-color: transparent;
-  color: black;
+  color: white;
+  background-color: #bb2125;
+  transition: background-color 0.5s;
+}
+
+.project-link a:hover {
+  background-color: #a11a1e;
+  transition: background-color 0.5s;
 }
 
 .feature-image img {
