@@ -916,6 +916,14 @@ article {
   height: 100%;
 }
 
+/* article.even .feature-text {
+  border-left: 1px solid #0000000d;
+}
+
+article.odd .feature-text {
+  border-right: 1px solid #0000000d;
+} */
+
 @media (min-width: 768px) {
   article {
     /* grid-auto-rows: 512px; */

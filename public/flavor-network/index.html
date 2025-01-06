@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="robots" content="noindex,follow"/>
+    <title>Flavor Network - Scientific American</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Flavor Network - Scientific American"/>
+    <meta name="author" content="TULP interactive"/>
+	<script src="underscore-1.4.3.min.js"></script>
+  	<script src="d3.v3.min.js"></script>
+  	<script src="fisheye.js"></script>
+  	<style>
+			@font-face {
+			  font-family: "ApresCondensed-Regular";
+			  src: url(ApresCondensed-Regular.ttf) format("truetype");
+			}
+
+			@font-face {
+			  font-family: "ApresRegular";
+			  src: url(Apres-Regular.ttf) format("truetype");
+			}
+
+			body {
+				font-family: 'ApresCondensed-Regular';
+			}
+			#container {
+				position: relative;
+			}
+			#explanation {
+				font-family: 'ApresRegular';
+				font-size: 12px;
+				position: absolute;
+				top: 50px;
+				width: 570px;
+				left: 130px;
+				background-color: white;
+				opacity: .95;
+				box-shadow: 10px 10px 10px rgba(0, 0, 0, .2);
+				-moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, .2);
+  				-webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, .2);
+  				border-radius: 10px;
+  				-moz-border-radius: 10px;
+				-webkit-border-radius: 10px;
+			}
+			#explanation .closeExplanation {
+				width: 100%;
+				text-align: center;
+			}
+			#explanation button {
+				border: none;
+				background-color: #fff;
+				text-decoration: none;
+				color: rgb(0, 170, 211);
+				font-weight: bold;
+				font-size: 12px;
+				border-radius: 5px;
+			}
+			#explanation button:hover {
+				text-decoration: underline;
+				cursor: pointer;
+			}
+			#explanation .image {
+				width: 100%;
+				text-align: center;
+			}
+			#content {
+				margin: 20px;
+			}
+			#viz {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			ul {
+				padding-left: 0px;
+				list-style: none;
+				font-size: 10px;
+			}
+			a, a:link, a:active, a:visited {
+				text-decoration: underline;
+				color: rgb(0, 170, 211);
+			}
+			a:hover {
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="viz"></div>
+			<div id="explanation">
+				<div id="content">
+					<p class="closeExplanation">
+						<button>close</button>
+					</p>
+					<div>
+						<h1>How to Read This Graphic</h1>
+					</div>
+					<p>
+						Each blue dot is a food. Similar foods are grouped into 14 category columns (listed in alphabetical order).
+					</p>
+					<p class="image">
+						<img src="dot.png" />
+					</p>
+					<p>
+						The size of a dot shows how popular the food is &mdash; the frequency with which it appears in a global 56,498-recipe database.
+					</p>
+					<p class="image">
+						<img src="dotsize.png" />
+					</p>
+					<p>
+						A line connecting the two dots means the two foods share at least one flavor-related chemical compound. The more flavor compounds they share, the thicker the line. Red lines connect foods in different categories.
+					</p>
+					<p class="image">
+						<img src="redlines.png" />
+					</p>
+					<p>
+						Gray lines connect foods in the same category.
+					</p>
+					<p class="image">
+						<img src="graylines.png" />
+					</p>
+					<p>
+						A food's vertical position on the page reveals the total number of foods that connect to it. Foods at the top of the page share flavor compounds with many other foods. Foods at the bottom of the page are completely unique &mdash; they don'&rsquo;t share flavors with any other foods.
+					</p>
+					<p>
+						When selecting a line in the main graphic, all the foods that have that particular number of compounds that they share with other foods are shown, as well as the foods they link with. Clicking on an empty space in the background will remove the current selection.
+					</p>
+					<p>
+						The graph on the right shows the selected foods by the number of times they appear in a recipe in the database. The graph uses a logarithmic scale.
+					</p>
+					<p>
+						Because of space constraints only the most popular ingredient in a cluster of dots is labeled. 
+					</p>
+					<hr />
+					<ul>
+						<li>Interactive by <a href="http://tulpinteractive.com">Jan Willem Tulp</a></li>
+						<li>SOURCE: <a href="http://www.nature.com/srep/2011/111215/srep00196/full/srep00196.html">“Flavor Network and the Principles of Food Pairing,”</a> by Yong-Yeol Ahn, Sebastian E. Ahnert, James P. Bagrow and Albert-László Barabási, in Scientific Reports, Vol. 1, Article No. 196; December 15, 2011. With thanks to Sebastian Ahnert</li>
+					</ul>
+					<p class="closeExplanation">
+						<button>close</button>
+					</p>
+				</div>
+			</div>
+		</div>
+		<script>
+			d3.tsv("ingr_freq.txt", function(ingr) {
+				d3.tsv("edges.tsv", function(edges_) {
+					d3.tsv("category.txt", function(cat) {
+						d3.tsv("_category_legend.txt", function(leg) {
+							
+
+							var edges = [];
+
+							_.each(edges_, function(d) {
+								var contained = false;
+								_.each(edges, function(e) {
+									if (d.ingredient1 == e.ingredient1 && d.ingredient2 == e.ingredient2 && d.shared_nr_of_compounds == e.shared_nr_of_compounds) {
+										contained = true;
+									}
+								})
+								if (!contained) {
+									edges.push(d)
+								}
+							})
+
+							var categories = {};
+							_.each(leg, function(d) {
+								categories[d.abbr] = d.category;
+							})
+
+							var ingredients = {};
+							_.each(cat, function(d) {
+								var split = d.ingredient_cat.split(" ");
+								ingredients[split[0]] = categories[split[1]].replace(/_/g, " ");
+							})
+
+							var nodes = [];
+
+							_.each(ingr, function(d) { 
+								var name = d.ingredient_prevalence.split(" ")[0];
+								
+								var node = {
+									name: name.replace(/_/g, " "), 
+									prevalence: +d.ingredient_prevalence.split(" ")[1],
+									links: [],
+									category: ingredients[name]
+								};
+								
+								nodes.push(node);
+							})
+
+							function containsLink(links, edge) {
+								var result = false;
+								_.each(links, function(d) {
+									if ((d.ingredient1 == edge.ingredient1 && d.ingredient2 == edge.ingredient2) || (d.ingredient1 == edge.ingredient2 && d.ingredient2 == edge.ingredient1)) {
+										result = true;
+									} 
+								});
+
+								return result;
+							}
+
+							_.each(edges, function(d) {
+								var names = _.map(nodes, function(d) { return d.name; });
+								
+								d.ingredient1 = _.indexOf(names, d.ingredient1);
+								d.ingredient2 = _.indexOf(names, d.ingredient2);
+
+								if (!containsLink(nodes[d.ingredient1].links, d)) {
+									nodes[d.ingredient1].links.push(d);
+								}
+								
+								if (!containsLink(nodes[d.ingredient2].links, d)) {
+									nodes[d.ingredient2].links.push(d);
+								}
+								d.shared_nr_of_compounds = +d.shared_nr_of_compounds;
+							})
+
+							var gt = 0;
+							var lt = 0;
+
+							_.each(d3.nest()
+								.key(function(d) { return d.category; })
+								.entries(nodes), function(category) {
+									_.each(category.values, function(ingredient) {
+										ingredient.links_in = [];
+										ingredient.links_out = [];
+										
+										_.each(ingredient.links, function(link) {
+											if (category.key == nodes[link.ingredient1].category && category.key == nodes[link.ingredient2].category) {
+												ingredient.links_in.push(link);
+											} else {
+												ingredient.links_out.push(link);
+											}
+										})
+
+										ingredient.links_out_mean = mean(_.map(ingredient.links_out, function(d) { return d.shared_nr_of_compounds; }));
+
+										if (ingredient.links_out.length > 0) {
+											gt++;
+										} else {
+											lt++;
+										}
+									})
+								})
+
+							var margin = {top: 10, right: 20, bottom: 10, left: 50},
+								HEIGHT = 1100 - margin.top - margin.bottom,
+								WIDTH = ((171 * HEIGHT) / 232) - margin.left - margin.right,
+								CAT_MARGIN = 10;
+
+
+							var svg = d3.select("body").append("svg")
+								.attr("width", WIDTH + margin.left + margin.right + (870 - WIDTH + margin.left + margin.right))
+								.attr("height", HEIGHT + margin.top + margin.bottom)
+								.style("cursor", "pointer")
+							.append("g")
+    							.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    						svg.append("rect")
+    							.attr("x", -margin.left)
+    							.attr("width", WIDTH + margin.left + margin.right + (870 - WIDTH + margin.left + margin.right))
+    							.attr("y", -margin.top)
+    							.attr("height", HEIGHT + margin.top + margin.bottom)
+    							.style("fill", "#fff")
+    							.on("click", clearSelection)
+
+    						var grouped = d3.nest()
+    							.key(function(d) { return d.category; })
+    							.entries(nodes)
+
+    						function median(values) {
+ 							    values.sort(function(a, b) { return a - b; });
+							 
+							    var half = Math.floor(values.length / 2);
+							 
+							    if (values.length % 2) {
+							    	return values[half];
+							    } else {
+							    	return (values[half-1] + values[half]) / 2.0;
+							    }
+							}
+
+							function mean(values) {
+								return _.reduce(values, function(a, b) { return a + b; }, 0) / values.length;
+							}
+
+    						_.each(grouped.sort(function(a, b) { return a.key > b.key ? 1 : a.key < b.key ? -1 : 0; }), function(c, i) {
+    							_.each(c.values, function(d, j) {
+    								var temp = _.map(d.links, function(d) { return d.shared_nr_of_compounds; });
+    								d.mean = temp.length == 0 ? 0 : mean(temp);
+    								d.median = temp.length == 0 ? 0 : median(temp);
+    							})
+    						})
+
+    						var y = d3.scale.linear().domain([0, _.max(_.map(nodes, function(d) { return d.links.length; }))]).range([HEIGHT - 15, 80]).nice();
+							var sw = d3.scale.linear().domain([1, 144]).range([.5, 4]);
+							var o = d3.scale.linear().domain([0, 144]).range([.3, 1]);
+							var sc = d3.scale.linear().domain([1, 144]).range([d3.rgb(209, 62, 66), d3.rgb(249, 65, 64)]).interpolate(d3.interpolateLab)
+							var r = d3.scale.linear().domain([0, 20951]).range([5, 1000]);
+							var r2 = d3.scale.linear().domain([0, 49]).range([5, 350]);
+
+							var axis = d3.svg.axis()
+								.scale(y)
+								.orient("left")
+								.tickSize(5)
+								.tickValues(d3.range(0, 50))
+
+							var axisMainElem = svg.append("g")
+								.attr("transform", "translate(-25, 0)")
+								.on("click", clearSelection)
+
+							axisMainElem.append("text")
+								.text("Number of other foods that share at least one flavor compound")
+								.style("font-size", "14px")
+    							.style("font-family", "ApresCondensed-Regular")
+    							.style("text-anchor", "end")
+    							.style("fill", d3.rgb(255, 194, 14))
+    							.attr("dy", 14)
+    							.attr("dx", -95)
+    							.attr("transform", "rotate(-90)")
+
+							var axisElem = axisMainElem.append("g")
+								.attr("class", "yaxis")
+								.call(axis)
+
+							d3.selectAll(".yaxis path")
+								.style("stroke", "none")
+								.style("fill", "none")
+
+							var tickValuesEmphasized = _.map(_.filter(nodes, function(d) { return d.links.length > 0; }), function(d) { return d.links.length; })
+
+							d3.selectAll(".yaxis text")
+								.style("fill", function(d) { return _.contains(tickValuesEmphasized, d) || d == 0 ? d3.rgb(255, 194, 14) : "#eee"; })
+								.style("font-size", "12px")
+								.style("font-weight", "normal")
+
+							_.each(grouped, function(c, i) {
+								_.each(c.values, function(d) { 
+									d.x = (WIDTH / grouped.length / 2) + (i / grouped.length * WIDTH) + ((Math.random() > .5 ? -1 : 1) * (Math.random() * 20));
+									d.ox = (WIDTH / grouped.length / 2) + (i / grouped.length * WIDTH);
+									d.y = y(d.links.length)
+								})
+							})
+
+							var marked = [];
+
+							_.each(d3.nest()
+								.key(function(d) { return d.category; })
+								.key(function(d) { return d.links.length})
+								.entries(nodes), function(category, i) {
+									_.each(category.values, function(ll) {
+										var maxPrev = _.max(_.map(ll.values, function(d) { return d.prevalence; }))
+										_.each(ll.values.sort(function(a, b) { return b.prevalence - a.prevalence; }), function(node, j) {
+											var sectionWidth = WIDTH / grouped.length;
+											node.x = node.ox - (((ll.values.length - 1) / 2) * (sectionWidth / (ll.values.length + 1))) + (j * (sectionWidth / (ll.values.length + 1)));
+											node.showLabel = node.prevalence == maxPrev || _.contains(marked, node.name);
+										})
+									})
+								});
+
+							_.each(edges, function(d) { 
+								var n1 = nodes[d.ingredient1];
+								var n2 = nodes[d.ingredient2];
+								d.n1 = n1;
+								d.n2 = n2;
+								d.line = [];
+								d.line2 = [];
+								d.line3 = [];
+								var halfX = _.min([n1.x, n2.x]) + ((_.max([n1.x, n2.x]) - _.min([n1.x, n2.x])) / 2);
+								var halfY = _.min([n1.y, n2.y]) + ((_.max([n1.y, n2.y]) - _.min([n1.y, n2.y])) / 2);
+								var extent = .4 * Math.abs(n2.y - n1.y);
+								var sameX = 0;
+								d.line.push([n1.x, n1.y]);
+								d.line.push([n1.x + sameX, n1.y < n2.y ? n1.y + extent : n1.y - extent])
+								d.line.push([halfX + sameX, halfY]);
+								d.line.push([n2.x + sameX, n1.y > n2.y ? n2.y + extent : n2.y - extent])
+								d.line.push([n2.x, n2.y]);
+
+								d.line2.push([n1.x, n1.y]);
+								d.line2.push([halfX - ((Math.random() > .5 ? 1 : -1) * .2 * Math.abs(n1.y - n2.y)), halfY]);
+								d.line2.push([n2.x, n2.y]);
+
+								d.line3.push([n1.x, n1.y]);
+								d.line3.push([halfX, halfY + ((Math.random() > .5 ? 1 : -1) * Math.abs(n1.x - n2.x))]);
+								d.line3.push([n2.x, n2.y]);
+							})
+
+    						function clearSelection() {
+    							console.log("clear selection")
+
+    							svg.select(".clearSelection")
+    								.style("display", "none")
+
+    							svg.selectAll(".link, .samelink")
+									.style("display", "block")
+									
+								var ingredient = svg.selectAll(".ingredient")
+								ingredient.selectAll(".prevalenceCircle").style("display", "block")
+								ingredient.selectAll(".centerCircle").style("fill", d3.rgb(0, 170, 211))
+
+								var ingredientLabel = svg.selectAll(".ingredientLabel")
+									.style("display", function(d) { return d.showLabel ? "block" : "none"; })
+									
+								ingredientLabel.selectAll("text")
+									.attr("dy", function(d) { return -Math.sqrt(r(d.prevalence)) - 4; })
+									.style("fill", "#555")
+
+								svg.select(".markerLine")
+									.style("display", "none")
+
+								svg.select(".oneLinkRemark")
+									.style("display", "none")
+
+								updateIngredientList([])
+    						}
+
+    						var category = svg.selectAll(".category")
+    							.data(grouped)
+    							.enter().append("g")
+    							.attr("class", "category")
+    							.attr("transform", function(d, i) { return "translate(" + (i * WIDTH / grouped.length) + ", 0)"; })
+    							.on("click", clearSelection)
+
+    						category.append("rect")
+    							.attr("width", WIDTH / grouped.length)
+    							.attr("height", HEIGHT)
+    							.style("fill", function(d, i) { return i % 2 == 0 ? "#f2f2f2" : "#e4e4e4"; })
+
+							category.append("text")
+								.text(function(d) { return d.key.toUpperCase(); })    							
+								.attr("transform", "rotate(-90) translate(-7, 0)")
+								.style("text-anchor", "end")
+								.attr("dy", 15)
+								.style("font-size", "13px")
+								.style("font-family", "ApresCondensed-Regular")
+								.style("fill", "#777")
+
+							var ingredientBack = svg.selectAll(".ingredientBack")
+    							.data(nodes)
+    							.enter().append("g")
+    							.attr("class", "ingredientBack")
+    							.attr("transform", function(d) { return "translate(" + d.x + ", " + y(d.links.length) + ")"; })
+
+    						ingredientBack.append("circle")
+    							.attr("class", "ingredientBackCircle")
+    							.attr("r", 2)
+    							.style("fill", "#d7d7d7")
+
+    						var line = d3.svg.line()
+    							.interpolate("bundle")
+    							.tension(.6);
+
+    						var sameLink = svg.selectAll(".samelink")
+    							.data(_.filter(edges, function(d) { return d.n1.ox == d.n2.ox; }))
+    							.enter().append("path")
+    							.attr("class", "samelink")
+    							.attr("d", function(d) { return d.n1.links.length == d.n2.links.length ? line(d.line3) : line(d.line2); })
+    							.style("stroke", "#bbb")
+    							.style("fill", "none")
+    							.style("opacity", .7)
+
+    							var link = svg.selectAll(".link")
+	    							.data(_.filter(edges, function(d) { return (d.n1.ox != d.n2.ox) && d.n1.links_out.length > 0 && d.n2.links_out.length > 0; }).sort(function(a, b) { return a.shared_nr_of_compounds - b.shared_nr_of_compounds; }))
+	    							.enter().append("g")
+	    							.attr("class", "link")
+
+									link.append("path")
+		    							.attr("d", function(d) { return line(d.line); })
+		    							.style("stroke", "#fff")
+		    							.style("fill", "none")
+		    							.style("opacity", function(d) { return o(d.shared_nr_of_compounds); })
+		    							.style("stroke-width", function(d) { return 1.8 * sw(d.shared_nr_of_compounds); })
+		    							.style("stroke-linecap", "round")
+
+	    							link.append("path")
+		    							.attr("d", function(d) { return line(d.line); })
+		    							.style("stroke", function(d) { return sc(d.shared_nr_of_compounds); })
+		    							.style("fill", "none")
+		    							.style("opacity", function(d) { return o(d.shared_nr_of_compounds); })
+		    							.style("stroke-width", function(d) { return sw(d.shared_nr_of_compounds); })
+		    							.style("stroke-linecap", "round")
+		    					
+    						var ingredient = svg.selectAll(".ingredient")
+    							.data(nodes)
+    							.enter().append("g")
+    							.attr("class", "ingredient")
+    							.attr("transform", function(d) { return "translate(" + d.x + ", " + y(d.links.length) + ")"; })
+    							var catC = d3.scale.category20();
+
+    						ingredient.append("circle")
+    							.attr("class", "centerCircle")
+    							.attr("r", 2)
+    							.style("fill", d3.rgb(0, 170, 211))
+    							
+    						ingredient.append("circle")
+    							.attr("class", "prevalenceCircle")
+    							.attr("r", function(d) { return Math.sqrt(r(d.prevalence)); })
+    							.style("fill", d3.rgb(0, 170, 211))
+    							.style("fill-opacity", .4)
+
+    						ingredient.append("circle")
+    							.style("fill", "#579")
+    							.style("stroke", "#579")
+    							.style("fill-opacity", .3)
+
+    						var ingredientLabel = svg.selectAll(".ingredientLabel")
+    							.data(nodes)
+    							.enter().append("g")
+    							.attr("class", "ingredientLabel")
+    							.attr("transform", function(d) { return "translate(" + d.x + ", " + y(d.links.length) + ")"; })
+    							.style("font-family", "ApresCondensed-Regular")
+    							.style("font-size", "12px")
+    							.style("display", function(d) { return d.showLabel ? "block" : "none"; })
+
+    						ingredientLabel.append("text")
+    							.style("text-anchor", "middle")
+    							.style("fill", "#fff")
+    							.style("stroke", "#fff")
+    							.style("stroke-width", 2)
+    							.attr("dy", function(d) { return -Math.sqrt(r(d.prevalence)) - 4; })
+    							.text(function(d) { return (d.name.substring(0, 1).toUpperCase() + d.name.substring(1)); })
+    							.style("opacity", .9)
+    						
+    						ingredientLabel.append("text")
+    							.attr("class", "frontIngredientLabel")
+    							.style("text-anchor", "middle")
+    							.style("fill", "#555")
+    							.attr("dy", function(d) { return -Math.sqrt(r(d.prevalence)) - 4; })
+    							.text(function(d) { return (d.name.substring(0, 1).toUpperCase() + d.name.substring(1)); })
+    							
+    						var hoverbarClick = function(i) {
+								var filtered = _.filter(nodes, function(d) { return d.links.length == i; });
+								var filteredNames = _.map(filtered, function(d) { return d.name; });
+
+								var filteredEdges = [];
+
+								var edgeFilteredNames = [];
+								_.each(edges, function(d) {
+									if (d.n1.links.length == i || d.n2.links.length == i) {
+										edgeFilteredNames.push(d.n1.name);
+										edgeFilteredNames.push(d.n2.name);
+
+										filteredEdges.push(d.n1);
+										filteredEdges.push(d.n2);
+									}
+								})
+								edgeFilteredNames = _.uniq(edgeFilteredNames);
+
+								filteredEdges = _.unique(filteredEdges);
+
+								_.each(d3.nest()
+									.key(function(d) { return d.category; })
+									.key(function(d) { return d.links.length})
+									.entries(filteredEdges), function(category, i) {
+										_.each(category.values, function(ll) {
+											var maxPrev = _.max(_.map(ll.values, function(d) { return d.prevalence; }))
+											_.each(ll.values, function(node, j) {
+												node.showLabel = node.prevalence == maxPrev;
+											})
+										})
+									});
+
+								updateIngredientList(filtered, i == 1);
+
+								svg.selectAll(".link, .samelink")
+									.style("display", function(d) { return _.contains(filteredNames, d.n1.name) || _.contains(filteredNames, d.n2.name) ? "block" : "none"; })
+									
+								var ingredient = svg.selectAll(".ingredient")
+									
+								ingredient.selectAll(".prevalenceCircle").style("display", function(d) { return _.contains(filteredNames, d.name) ? "block" : "none"; })
+								ingredient.selectAll(".centerCircle")
+									.style("fill", function(d) { return d.links.length == i ? d3.rgb(0, 170, 211) : _.contains(edgeFilteredNames, d.name) ? "#666": "none"; })
+
+								var ingredientLabel = svg.selectAll(".ingredientLabel")
+									.style("display", function(d) { return i == 1 ? (d.showLabel ? "block" : "none") : (_.contains(edgeFilteredNames, d.name) && d.showLabel) || (i == 0 && d.links.length == 0) ? "block" : "none"; })
+									
+								ingredientLabel.selectAll("text")
+									.attr("dy", function(d) { return d.links.length == i ? -Math.sqrt(r(d.prevalence)) - 4 : d.links.length > i ? -6 : 13; })
+								
+								ingredientLabel.selectAll(".frontIngredientLabel")
+									.style("fill", function(d) { return d.links.length == i ? d3.rgb(0, 170, 211) : "#555"; })
+
+								svg.select(".markerLine")
+									.attr("y1", y(i))
+									.attr("y2", y(i))
+									.style("display", "block")
+
+								svg.select(".clearSelection")
+									.style("display", "block")
+
+								svg.select(".oneLinkRemark")
+									.style("display", i == 1 ? "block" : "none")
+    						}
+
+    						var n = 33;
+    						var ly = d3.scale.linear().domain([0, _.filter(nodes, function(d) { return d.links.length == n; }).length]).range([0, HEIGHT])
+    						var py = d3.scale.log().domain([1, d3.max(nodes, function(d) { return d.prevalence; })]).range([HEIGHT - 50, 0]).nice();
+
+    						var pAxis = d3.svg.axis()
+								.scale(py)
+								.orient("right")
+								.tickSize(5)
+								.tickFormat(d3.format("f"))
+
+							var pAxisMainElem = svg.append("g")
+								.attr("transform", "translate(830, 10)")
+								.on("click", clearSelection)
+
+							pAxisMainElem.append("text")
+								.style("font-size", "14px")
+								.text("The frequency with which the food item appears in a global 56,498-recipe database (log scale).")
+								.style("fill", "#ddd")
+								.style("font-family", "ApresCondensed-Regular")
+								.attr("transform", "rotate(-90)")
+								.style("text-anchor", "end")
+								.attr("dy", -7)
+
+							var pAxisElem = pAxisMainElem.append("g")
+								.attr("class", "paxis")
+								.call(pAxis)
+
+							pAxisElem.selectAll(".paxis path")
+								.style("stroke", "#ddd")
+								.style("fill", "none")
+
+							pAxisElem.selectAll(".paxis line")
+								 .style("stroke", "#ddd")
+								 .attr("x1" -25)
+
+							pAxisElem.selectAll(".paxis text")
+								.style("fill", "#ddd")
+								.style("font-size", "10px")
+								.style("font-weight", "normal") 
+
+							var list = svg.append("g")
+    							.attr("transform", "translate(830, 10)")
+    							.attr("class", "list")
+    							.on("click", clearSelection)
+
+    						function updateIngredientList(ingredients, noOverlap) {
+    							if (noOverlap) {
+    								var temp = [];
+
+    								_.each(ingredients.sort(function(a, b) { return b.prevalence - a.prevalence; }), function(d) { 
+    									if (temp.length == 0) {
+    										temp.push(d);
+    									} else {
+    										if (py(d.prevalence) - py(temp[temp.length - 1].prevalence) > 4 ) {
+    											temp.push(d)
+    										}
+    									}
+    								})
+
+    								ingredients = temp;
+    							}
+
+								var listItem = list.selectAll(".listItem")
+	    							.data(ingredients, function(d) { return d.name; })
+	    							
+	    						listItem.enter().append("g")
+	    							.attr("class", "listItem")
+	    							.attr("transform", function(d, i) { return "translate(0, " + py(d.prevalence) + ")"; })
+	    							
+	    						listItem.exit().remove();
+
+	    						listItem.select("text")
+	    							.text(function(d) { return (d.name.substring(0, 1).toUpperCase() + d.name.substring(1)); })
+
+	    						var listItemBackText = listItem.append("text")
+	    							.style("font-size", "12px")
+	    							.style("font-family", "ApresCondensed-Regular")
+	    							.style("text-anchor", function(d, i) { return i % 2 == 0 ? "start" : "end"; })
+	    							.attr("dx", function(d, i) { return i % 2 == 0 ? 10 : -10; })
+	    							.style("fill", "#fff")
+	    							.style("stroke", "#fff")
+	    							.style("stroke-width", 3)
+	    							.style("opacity", .8)
+	    							.attr("dy", 4)
+	    							.text(function(d) { return (d.name.substring(0, 1).toUpperCase() + d.name.substring(1)); })
+	    							
+	    						var listItemText = listItem.append("text")
+	    							.style("font-size", "12px")
+	    							.style("font-family", "ApresCondensed-Regular")
+	    							.style("text-anchor", function(d, i) { return i % 2 == 0 ? "start" : "end"; })
+	    							.attr("transform", function(d, i) { return "translate(" + (i % 2 == 0 ? 10 : -10) + ", 0)"; })
+	    							.style("fill", d3.rgb(0, 170, 211))
+	    							.attr("dy", 4)
+	    							.text(function(d) { return (d.name.substring(0, 1).toUpperCase() + d.name.substring(1)); })
+	    							
+	    						listItem.append("circle")
+	    							.attr("r", 3)
+	    							.style("fill", d3.rgb(0, 170, 211))
+    						}
+
+    						updateIngredientList([])
+
+    						var markerLine = svg.append("line")
+    							.attr("class", "markerLine")
+    							.attr("x1", -40)
+    							.attr("x2", WIDTH)
+    							.attr("y1", 0)
+    							.attr("y2", 0)
+    							.style("stroke-linecap", "round")
+    							.style("stroke", d3.rgb(0, 170, 211))
+    							.style("stroke-width", Math.abs((y.range()[1] - y.range()[0]) / (y.domain()[1] - y.domain()[0])))
+    							.style("opacity", .1)
+    							.style("display", "none")
+
+    						var hoverbar = svg.selectAll(".hoverbar")
+    							.data(_.uniq(_.map(nodes, function(d) { return d.links.length; })).sort(function(a, b) { return a - b; }))
+    							.enter().append("g")
+    							.attr("transform", function(d) { return "translate(0, " + y(d) + ")"; })
+    							.attr("class", "hoverbar")
+    							.on("mouseover", function(d) {
+    								var t = d3.select(this)
+    									
+    								t.select(".mainLine").style("opacity", .1)
+    								t.select(".clickLine").style("opacity", 1)
+    								t.selectAll("text").style("opacity", 1)
+    							})
+    							.on("mouseout", function(d) {
+    								var t = d3.select(this)
+    									
+    								t.select(".mainLine").style("opacity", 0)
+    								t.select(".clickLine").style("opacity", 0)
+    								t.selectAll("text").style("opacity", 0)
+    							})
+    							.on("click", hoverbarClick)
+
+    						hoverbar.append("line")
+    							.attr("class", "mainLine")
+    							.attr("x1", -40)
+    							.attr("x2", WIDTH)
+    							.style("stroke-linecap", "round")
+    							.style("stroke", "#000")
+    							.style("opacity", 0)
+    							.style("stroke-width", Math.abs((y.range()[1] - y.range()[0]) / (y.domain()[1] - y.domain()[0])))
+
+    						hoverbar.append("line")
+    							.attr("class", "clickLine")
+    							.attr("x1", WIDTH + 20)
+    							.attr("x2", WIDTH + 85)
+    							.style("stroke-linecap", "round")
+    							.style("stroke", "#FFE599")
+    							.style("opacity", 0)
+    							.style("stroke-width", Math.abs((y.range()[1] - y.range()[0]) / (y.domain()[1] - y.domain()[0])))
+
+    						hoverbar.append("text")
+    							.text("CLICK TO SELECT")
+    							.style("font-family", "ApresCondensed-Regular")
+    							.style("font-size", "11px")
+    							.style("fill", "#000")
+    							.style("opacity", 0)
+    							.attr("transform", "translate(17, 0)")
+    							.attr("x", WIDTH)
+    							.attr("dy", 4)
+
+    						var clearSelection = svg.append("g")
+    							.attr("class", "clearSelection")
+    							.attr("transform", "translate(200, 200)")
+    							.on("click", clearSelection)
+    							.style("display", "none")
+
+    						var rectW = 200, rectH = 30;
+
+    						clearSelection.append("rect")
+    							.attr("x", -rectW / 2)
+    							.attr("y", -rectH / 2)
+    							.attr("width", rectW)
+    							.attr("height", rectH)
+    							.style("fill", "#FFE599")
+    							.attr("rx", 10)
+
+    						clearSelection.append("text")
+    							.text("CLICK BACKGROUND TO CLEAR SELECTION")
+    							.style("font-family", "ApresCondensed-Regular")
+    							.style("font-size", "11px")
+    							.style("text-anchor", "middle")
+    							.attr("dy", 3)
+
+    						var oneLinkRemark = svg.append("g")
+    							.attr("class", "oneLinkRemark")
+    							.attr("transform", "translate(800, 90)")
+    							.style("display", "none")
+
+    						oneLinkRemark.append("rect")
+    							.attr("x", -rectW / 2)
+    							.attr("y", -rectH / 2)
+    							.attr("width", rectW)
+    							.attr("height", rectH * 1.4)
+    							.style("fill", "#FFE599")
+    							.attr("rx", 10)
+
+							oneLinkRemark.append("text")
+    							.text("for legibility reasons some")
+    							.style("font-family", "ApresCondensed-Regular")
+    							.style("font-size", "11px")
+    							.style("text-transform", "uppercase")
+    							.style("text-anchor", "middle")
+    							.attr("dy", 3)
+
+    						oneLinkRemark.append("text")
+    							.text("ingredient names are not displayed")
+    							.style("font-family", "ApresCondensed-Regular")
+    							.style("font-size", "11px")
+    							.style("text-transform", "uppercase")
+    							.style("text-anchor", "middle")
+    							.attr("dy", 16)
+
+							d3.selectAll("#explanation button")
+								.on("click", function(d) {
+									d3.select("#explanation")
+										.style("display", "none")
+								})
+
+							var help = svg.append("g")
+								.attr("class", "help")
+								.attr("transform", "translate(770, 20)")
+								.on("click", function(d) {
+									d3.select("#explanation")
+										.style("display", "block")
+								})
+								.on("mouseover", function(d) {
+									d3.select(this).select("rect")
+										.style("fill", d3.rgb("#FFE599").darker(.1))
+								})
+								.on("mouseout", function(d) {
+									d3.select(this).select("rect")
+										.style("fill", "#FFE599")
+								})
+
+							help.append("rect")
+    							.attr("x", .2 * -rectW / 2)
+    							.attr("y", -rectH / 2)
+    							.attr("width", .2 * rectW)
+    							.attr("height", rectH)
+    							.style("fill", "#FFE599")
+    							.attr("rx", 10)
+
+    						help.append("text")
+    							.text("HELP")
+    							.style("font-family", "ApresCondensed-Regular")
+    							.style("font-size", "11px")
+    							.style("text-anchor", "middle")
+    							.attr("dy", 3)
+
+						})
+					})
+				})
+			})
+		</script>
+	</body>
+</html>
+

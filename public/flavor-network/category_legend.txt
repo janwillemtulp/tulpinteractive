@@ -1,0 +1,18 @@
+abbr	category
+a	alcoholic beverage
+f	fruit
+v	vegetable
+ce	cereal or crop
+d	dairy
+sp	spice
+h	herb
+cd	condiment
+st	starch crop
+pd	plant derivative
+ap	animal product
+fl	flower
+w	wood
+p	plant
+m	meat
+sf	fish or seafood
+n	nut, seed or legume
